@@ -28,12 +28,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { driving, category } from "@/constant";
+import { menu1, category } from "@/constant";
 import Editor from "./Editor";
 import { useState } from "react";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import FaqForm from "./FaqForm";
+// import FaqForm from "./FaqForm";
 import { JsonValue } from "@prisma/client/runtime/library";
 
 const blogSchema = z.object({
@@ -191,7 +191,7 @@ const BlogEdit = ({
                         {l}
                       </SelectItem>
                     ))}
-                    {driving.labels.map((l) => (
+                    {menu1.labels.map((l) => (
                       <SelectItem key={l} value={l} className="capitalize">
                         {l}
                       </SelectItem>
@@ -255,7 +255,7 @@ const BlogEdit = ({
         <div className="flex flex-col w-full">
           <span className="pb-4 text-xl font-medium">Add Faqs</span>
           <div className="w-full border border-slate-200 rounded-md px-10 py-8">
-            <FaqForm setData={setFaq} initialData={faqData} />
+            {/* <FaqForm setData={setFaq} initialData={faqData} /> */}
           </div>
         </div>
         <Button type="submit">Submit</Button>

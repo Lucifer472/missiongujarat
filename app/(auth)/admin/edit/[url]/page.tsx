@@ -1,5 +1,5 @@
 import SwitchNav from "@/components/admin/SwitchNav";
-import { getBlog, getFaq } from "@/lib/blog-util";
+import { getBlog } from "@/lib/blog-util";
 import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
 
@@ -11,7 +11,7 @@ const page = async ({ params }: { params: { url: string } }) => {
   });
 
   if (data === null) return redirect("/admin");
-  const faq = await getFaq(data.id);
+  // const faq = await getFaq(data.id);
 
   const { blog, title, url, category, description, keywords, expiredAt, id } =
     data;
@@ -29,7 +29,7 @@ const page = async ({ params }: { params: { url: string } }) => {
             <span className="text-xl font-medium">Edit Blogs</span>
           </div>
           <div>
-            <BlogEdit
+            {/* <BlogEdit
               values={{
                 title,
                 url,
@@ -54,7 +54,7 @@ const page = async ({ params }: { params: { url: string } }) => {
                     }
                   : undefined
               }
-            />
+            /> */}
           </div>
         </div>
       </div>

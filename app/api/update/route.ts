@@ -47,31 +47,9 @@ export async function POST(req: Request) {
       },
     });
 
-    try {
-      const isFaq = await db.faq.findUnique({
-        where: {
-          blogId: id,
-        },
-      });
-      if (isFaq === null) {
-        await db.faq.create({
-          data: { blogId: id, faq: faq.blocks },
-        });
-      } else {
-        await db.faq.update({
-          where: {
-            blogId: id,
-          },
-          data: { faq: faq.blocks },
-        });
-      }
-    } catch (error) {
-      console.log("No FAQ PROVIDED");
-    }
-
     if (blog) {
       return NextResponse.json({
-        Message: "Blog Succesfully Updated!",
+        Message: "Blog Successfully Updated!",
         status: 200,
       });
     }
