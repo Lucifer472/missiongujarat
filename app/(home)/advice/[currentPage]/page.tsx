@@ -1,6 +1,6 @@
-import currentPage from "@/components/_components/CurrentPage";
-import NoBlog from "@/components/_components/NoBlog";
-import Pagination from "@/components/_components/Pagination";
+import currentPage from "@/components/etc/CurrentPage";
+import NoBlog from "@/components/etc/NoBlog";
+import Pagination from "@/components/etc/Pagination";
 import BlogList from "@/components/blogs/BlogList";
 import { url } from "@/constant";
 import { getBlogs } from "@/lib/blog-util";

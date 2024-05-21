@@ -1,7 +1,7 @@
-import NoBlog from "@/components/_components/NoBlog";
-import Pagination from "@/components/_components/Pagination";
+import NoBlog from "@/components/etc/NoBlog";
+import Pagination from "@/components/etc/Pagination";
 import BlogList from "@/components/blogs/BlogList";
-import currentPage from "@/components/_components/CurrentPage";
+import currentPage from "@/components/etc/CurrentPage";
 import { getBlogs } from "@/lib/blog-util";
 
 const getBlogBySearch = async (search: string, page: number) => {

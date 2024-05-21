@@ -1,5 +1,5 @@
 import Image from "next/image";
-import RecentBlog from "@/components/_components/RecentBlog";
+import RecentBlog from "@/components/etc/RecentBlog";
 import getAuthor from "@/lib/author-util";
 import { redirect } from "next/navigation";
 

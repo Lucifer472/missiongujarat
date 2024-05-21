@@ -67,13 +67,10 @@ export default async function Home() {
     }
   );
 
-  const AuthorList = dynamic(
-    () => import("@/components/_components/AuthorList"),
-    {
-      ssr: true,
-    }
-  );
-  const Faq = dynamic(() => import("@/components/_components/Faq"), {
+  const AuthorList = dynamic(() => import("@/components/etc/AuthorList"), {
+    ssr: true,
+  });
+  const Faq = dynamic(() => import("@/components/etc/Faq"), {
     ssr: false,
   });
 

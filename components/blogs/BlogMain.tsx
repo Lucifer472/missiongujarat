@@ -14,12 +14,9 @@ interface blogUser extends blog {
 }
 
 const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
-  const TableContent = dynamic(
-    () => import("@/components/_components/TableContent"),
-    {
-      ssr: false,
-    }
-  );
+  const TableContent = dynamic(() => import("@/components/etc/TableContent"), {
+    ssr: false,
+  });
 
   const blogHeadings = blog.blog.filter((b: any) => b.type === "header");
 

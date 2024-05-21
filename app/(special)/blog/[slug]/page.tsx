@@ -26,7 +26,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   });
 
   if (blog === null) {
-    const NoBlog = dynamic(() => import("@/components/_components/NoBlog"), {
+    const NoBlog = dynamic(() => import("@/components/etc/NoBlog"), {
       ssr: true,
     });
     return <NoBlog />;
@@ -54,12 +54,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
     ssr: true,
   });
 
-  const RecentBlog = dynamic(
-    () => import("@/components/_components/RecentBlog"),
-    {
-      ssr: true,
-    }
-  );
+  const RecentBlog = dynamic(() => import("@/components/etc/RecentBlog"), {
+    ssr: true,
+  });
 
   const jsonLD = {
     "@context": "https://schema.org",

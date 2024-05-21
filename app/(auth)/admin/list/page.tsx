@@ -1,4 +1,4 @@
-import LiveSearch from "@/components/_components/LiveSearch";
+import LiveSearch from "@/components/etc/LiveSearch";
 import SwitchNav from "@/components/admin/SwitchNav";
 import BlogList from "@/components/admin/BlogList";
 import { getEditBlogs } from "@/lib/blog-util";

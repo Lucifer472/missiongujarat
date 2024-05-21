@@ -4,7 +4,7 @@ import FeaturedBlogList from "./FeaturedBlogList";
 import textSlice from "@/lib/text-util";
 import { blog } from "@prisma/client";
 import { convertDateFormat } from "@/lib/date-util";
-import NoBlog from "../_components/NoBlog";
+import NoBlog from "../etc/NoBlog";
 
 interface blogUser extends blog {
   Author: {

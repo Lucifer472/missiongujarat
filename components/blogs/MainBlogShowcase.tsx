@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import BlogLink from "./BlogLink";
-import NoBlog from "../_components/NoBlog";
+import NoBlog from "../etc/NoBlog";
 
 interface authorBlog extends blog {
   Author: {

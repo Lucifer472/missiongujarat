@@ -56,12 +56,9 @@ export default function RootLayout({
   const Footer = dynamic(() => import("@/components/footer/Footer"), {
     ssr: true,
   });
-  const ScrollToTop = dynamic(
-    () => import("@/components/_components/ScrollToTop"),
-    {
-      ssr: false,
-    }
-  );
+  const ScrollToTop = dynamic(() => import("@/components/etc/ScrollToTop"), {
+    ssr: false,
+  });
 
   return (
     <html lang="en" className="scroll-smooth">
