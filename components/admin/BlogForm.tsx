@@ -1,10 +1,11 @@
 "use client";
-import toast from "react-hot-toast";
+import * as z from "zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import toast from "react-hot-toast";
+
 import { Button } from "@/components/ui/button";
-import { format } from "date-fns";
 import {
   Form,
   FormControl,
@@ -22,40 +23,15 @@ import {
   SelectValue,
   SelectItem,
 } from "@/components/ui/select";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { menu1, category } from "@/constant";
+
 import Editor from "./Editor";
-import { useState } from "react";
-import { CalendarIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { FaqEditor } from "./FaqForm";
 
-const blogSchema = z.object({
-  title: z.string().min(15, {
-    message: "Minimum of 15 Latters are required to post a blog!",
-  }),
-  url: z.string(),
-  keywords: z.string().max(190, {
-    message: "Maxmimum of 190 Latters are Allowed!",
-  }),
-  description: z.string().max(190, {
-    message: "Maxmimum of 190 Latters are Allowed!",
-  }),
-  category: z.string(),
-  expiredAt: z.date(),
-  faq: z.string(),
-});
-
-// Mian BLog section
+import { category } from "@/constant";
+import { blogSchema } from "@/schema";
 
 const BlogForm = () => {
   const [data, setData] = useState<any>({});
-  const [faq, setFaq] = useState<any>({});
   const form = useForm<z.infer<typeof blogSchema>>({
     resolver: zodResolver(blogSchema),
     defaultValues: {
@@ -171,20 +147,19 @@ const BlogForm = () => {
               <FormControl>
                 <Select
                   onValueChange={field.onChange}
-                  defaultValue={field.value}
+                  defaultValue={category[0].link}
                 >
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Category" />
                   </SelectTrigger>
                   <SelectContent>
-                    {category.labels.map((l) => (
-                      <SelectItem key={l} value={l} className="capitalize">
-                        {l}
-                      </SelectItem>
-                    ))}
-                    {menu1.labels.map((l) => (
-                      <SelectItem key={l} value={l} className="capitalize">
-                        {l}
+                    {category.map((l) => (
+                      <SelectItem
+                        key={l.link}
+                        value={l.link}
+                        className="capitalize"
+                      >
+                        {l.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -193,46 +168,6 @@ const BlogForm = () => {
               <FormDescription>
                 Please Select Category of the Scholarship
               </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="expiredAt"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>Please Select a Expiry Date:</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) => date < new Date()}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <FormDescription>Expiry Date for the new Blog.</FormDescription>
               <FormMessage />
             </FormItem>
           )}

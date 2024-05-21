@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   if (user === null) {
     return NextResponse.json({ Message: "Please Login Again!", status: 401 });
   }
-  const { title, url, keywords, description, data, category, expiredAt, faq } =
+  const { title, url, keywords, description, data, category, faq } =
     await req.json();
 
   const block = data.blocks;
@@ -44,7 +44,6 @@ export async function POST(req: Request) {
         description,
         blog: block,
         category,
-        expiredAt,
         state: user.type === "user" ? "pending" : "approve",
       },
     });

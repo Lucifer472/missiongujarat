@@ -1,38 +1,38 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import { title } from "@/constant";
+
+import { category, title } from "@/constant";
+
+import { Button } from "@/components/ui/button";
+import SearchBar from "./SearchBar";
+import Sidebar from "./Sidebar";
 
 const Navbar = () => {
-  const SearchBar = dynamic(() => import("@/components/navigation/SearchBar"), {
-    ssr: false,
-  });
-  const Sidebar = dynamic(() => import("@/components/navigation/Sidebar"), {
-    ssr: false,
-  });
-  const DesktopMenu = dynamic(
-    () => import("@/components/navigation/DesktopMenu"),
-    {
-      ssr: true,
-    }
-  );
-
-  const Progressbar = dynamic(() => import("./Progressbar"), { ssr: false });
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="h-16 md:h-20 w-full bg-white fixed top-0 border-b border-gray-100 shadow-sm z-50">
+    <header className="h-16 md:h-20 w-full bg-red-600 fixed top-0 border-b border-gray-100 shadow-sm z-50">
       <nav className="flex items-center justify-between w-full h-full relative global-container ">
-        <Link href={"/"} className="flex items-center gap-2">
-          <h1 className="text-xl font-medium text-black">{title}</h1>
+        <Sidebar setSidebar={setIsOpen} sidebar={isOpen} />
+        <Link href={"/"} className="items-center gap-2 flex">
+          <h1 className="text-xl font-medium text-white">{title}</h1>
         </Link>
         <div className="flex-1 justify-center items-center  gap-4 hidden lg:flex">
-          <DesktopMenu />
+          <ul className="items-center justify-self-center gap-x-4 flex">
+            {category.map((l) => (
+              <li key={l.link}>
+                <Button variant={"link"} asChild>
+                  <Link className="text-white text-[1rem]" href={l.link}>
+                    {l.label}
+                  </Link>
+                </Button>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="flex items-center gap-2">
-          <SearchBar />
-          <Sidebar />
-        </div>
+        <SearchBar />
       </nav>
-      <Progressbar />
     </header>
   );
 };

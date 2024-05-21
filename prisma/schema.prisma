@@ -53,12 +53,11 @@ model blog {
   description String
   author      String?
   blog        Json
-  category    String?
+  category    String
   state       state   @default(pending)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  expiredAt DateTime 
 
   Author   user?   @relation(fields: [author], references: [username])
 

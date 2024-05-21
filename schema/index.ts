@@ -18,16 +18,16 @@ export const formSchema = z.object({
   }),
   img: z.string(),
   bio: z.string().max(150, {
-    message: "Bio can only be 150 latters Long!",
+    message: "Bio can only be 150 latter's Long!",
   }),
   gender: z.enum(["Male", "Female"]),
   dob: z
     .string()
     .min(10, {
-      message: "Dob Formate Inccorrect Please use this Formate : 01/01/2000",
+      message: "Dob Formate Incorrect Please use this Formate : 01/01/2000",
     })
     .max(10, {
-      message: "Dob Formate Inccorrect Please use this Formate : 01/01/2000",
+      message: "Dob Formate Incorrect Please use this Formate : 01/01/2000",
     })
     .regex(/^[0-9\/]*$/, "Only numbers and / characters are allowed."),
   type: z.enum(["admin", "writer", "user"]),
@@ -46,20 +46,35 @@ export const editSchema = z.object({
   }),
   img: z.string(),
   bio: z.string().max(150, {
-    message: "Bio can only be 150 latters Long!",
+    message: "Bio can only be 150 latter's Long!",
   }),
   gender: z.enum(["Male", "Female"]),
   dob: z
     .string()
     .min(10, {
-      message: "Dob Formate Inccorrect Please use this Formate : 01/01/2000",
+      message: "Dob Formate Incorrect Please use this Formate : 01/01/2000",
     })
     .max(10, {
-      message: "Dob Formate Inccorrect Please use this Formate : 01/01/2000",
+      message: "Dob Formate Incorrect Please use this Formate : 01/01/2000",
     })
     .regex(/^[0-9\/]*$/, "Only numbers and / characters are allowed."),
   facebook: z.string(),
   instagram: z.string(),
   linkedin: z.string(),
   twitter: z.string(),
+});
+
+export const blogSchema = z.object({
+  title: z.string().min(15, {
+    message: "Minimum of 15 Latter's are required to post a blog!",
+  }),
+  url: z.string(),
+  keywords: z.string().max(190, {
+    message: "Maximum of 190 Latter's are Allowed!",
+  }),
+  description: z.string().max(190, {
+    message: "Maximum of 190 Latter's are Allowed!",
+  }),
+  category: z.string(),
+  faq: z.string(),
 });

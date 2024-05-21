@@ -7,7 +7,7 @@ interface AuthorListProps {
   authors: user[];
 }
 
-const AuthorList = ({ authors }: AuthorListProps) => {
+const Authors = ({ authors }: AuthorListProps) => {
   return (
     <div className="flex flex-wrap items-center justify-center gap-4 py-2">
       {authors.map((a) => (
@@ -35,4 +35,4 @@ const AuthorList = ({ authors }: AuthorListProps) => {
   );
 };
 
-export default AuthorList;
+export default Authors;

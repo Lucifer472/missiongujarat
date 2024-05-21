@@ -1,38 +1,79 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { SidebarClose, SidebarIcon } from "lucide-react";
-import useSideBarModal from "./SidebarModal";
-import MobileMenu from "./MobileMenu";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-const Sidebar = () => {
-  const sidebarModal = useSideBarModal();
+import { SidebarClose, SidebarIcon } from "lucide-react";
+
+import { category, footerLink } from "@/constant";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+
+const Sidebar = ({
+  setSidebar,
+  sidebar,
+}: {
+  setSidebar: (v: boolean) => void;
+  sidebar: boolean;
+}) => {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setSidebar(false);
+  }, [pathname, setSidebar]);
+
   return (
     <div
       className={cn(
-        "flex lg:hidden relative",
-        sidebarModal.isOpen ? "overflow-visible" : "overflow-hidden"
+        "flex lg:hidden relative px-4 py-2",
+        sidebar ? "overflow-visible" : "overflow-hidden"
       )}
     >
       <SidebarIcon
         width={20}
         height={20}
         className="cursor-pointer"
-        onClick={sidebarModal.onOpen}
+        color="white"
+        onClick={() => setSidebar(true)}
       />
       <div
         className={cn(
-          "h-[100vh] w-[300px] absolute top-[-15px] bg-white border-l-2 border-gray-300/30 transition-[right] duration-300 ease-in-out z-10",
-          sidebarModal.isOpen ? "right-0" : "right-[-350px]"
+          "h-screen w-[300px] absolute top-[-15px] bg-white border-r-2 border-gray-300/30 transition-[left] duration-300 z-10",
+          sidebar ? "left-[-15px]" : "left-[-350px]"
         )}
       >
         <div className="border-b border-gray-300/30 flex items-center justify-between py-4">
-          <h1 className="pl-4 text-lg font-medium">Menu bar</h1>
+          <h1 className="pl-4 text-lg font-medium">Mission Gujarat</h1>
           <div className="pr-2 cursor-pointer">
-            <SidebarClose onClick={sidebarModal.onClose} />
+            <SidebarClose onClick={() => setSidebar(false)} />
           </div>
         </div>
-        <aside className="flex flex-col items-start justify-start py-2 gap-4">
-          <MobileMenu />
+        <aside className="flex flex-col items-start justify-start px-4 py-2 gap-4">
+          <h3 className="py-2 border-b border-gray-400 w-full">Main Menu</h3>
+          <ul className="flex flex-col items-start justify-start gap-y-2">
+            {category.map((l) => (
+              <li key={l.link}>
+                <Button variant={"link"} asChild>
+                  <Link className="text-black text-[1rem]" href={l.link}>
+                    {l.label}
+                  </Link>
+                </Button>
+              </li>
+            ))}
+          </ul>
+          <h3 className="py-2 border-b border-gray-400 w-full">Other Menu</h3>
+          <ul className="flex flex-col items-start justify-start gap-y-2">
+            {footerLink.map((l) => (
+              <li key={l.link}>
+                <Button variant={"link"} asChild>
+                  <Link className="text-black text-[1rem]" href={l.link}>
+                    {l.label}
+                  </Link>
+                </Button>
+              </li>
+            ))}
+          </ul>
         </aside>
       </div>
     </div>

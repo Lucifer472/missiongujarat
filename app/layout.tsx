@@ -1,4 +1,3 @@
-import NextTopLoader from "nextjs-toploader";
 import dynamic from "next/dynamic";
 import "@/app/globals.css";
 import type { Metadata } from "next";
@@ -64,7 +63,6 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${poppins.className} overflow-x-hidden`}>
         {/* <Script async crossOrigin="anonymous" strategy="beforeInteractive" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2320529624102171" /> */}
-        <NextTopLoader />
         <Toaster position="top-center" />
         {/* <Notification /> */}
         <Navbar />

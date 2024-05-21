@@ -17,3 +17,4 @@ export const getEditBlogs = async (options: any) => {
   const data = await db.blog.findMany(options);
   return data;
 };
+

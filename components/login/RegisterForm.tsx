@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
-import { formSchema } from "./schema";
+import { formSchema } from "../../schema/schema";
 import { profileUpload } from "./profileUpload";
 import RegisterFormFields from "./RegisterFormFields";
 

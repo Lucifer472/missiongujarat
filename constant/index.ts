@@ -1,20 +1,48 @@
-import { Presentation, Newspaper } from "lucide-react";
+export const category = [
+  {
+    label: "Government Yojana",
+    link: "/government-yojana",
+  },
+  {
+    label: "Application",
+    link: "/application",
+  },
+  {
+    label: "News",
+    link: "/news",
+  },
+  {
+    label: "Government Schemes",
+    link: "/government-schema",
+  },
+  {
+    label: "Scholarship",
+    link: "/scholarship",
+  },
+  {
+    label: "Jobs",
+    link: "/jobs",
+  },
+  {
+    label: "Exams",
+    link: "/exams",
+  },
+];
 
-export const about = {
-  links: ["/about-us", "/contact-us", "/author"],
-  labels: ["About Us", "Contact Us", "Authors"],
-};
-
-export const category = {
-  links: ["/blogs", "/advice"],
-  labels: ["Blogs", "Advice"],
-  icons: [Presentation, Newspaper],
-};
-
-export const menu1 = {
-  links: ["mod-games", "top-apk", "paid-games", "mod-apk"],
-  labels: ["Mod Games", "Top Apk", "Paid Games", "Mod Apk"],
-};
+export const footerLink = [
+  {
+    link: "/about-us",
+    label: "About Us",
+  },
+  {
+    link: "/contact-us",
+    label: "Contact Us",
+  },
+  {
+    link: "/author",
+    label: "Author",
+  },
+];
 
 export const faq = {
   questions: [

@@ -15,3 +15,14 @@ export const getAllAuthor = async () => {
 };
 
 export default getAuthor;
+
+// Function and data
+export async function getAuthorByNumber(take: number) {
+  const data = await db.user.findMany({
+    take: take,
+    orderBy: {
+      id: "desc",
+    },
+  });
+  return data;
+}

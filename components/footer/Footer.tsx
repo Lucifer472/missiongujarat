@@ -1,4 +1,4 @@
-import { about, category, menu1, url } from "@/constant";
+import { category, footerLink, url } from "@/constant";
 import { Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,29 +10,15 @@ const Footer = () => {
         <div className="flex items-start justify-between flex-wrap gap-6 py-4">
           <div className="flex flex-col items-start justify-start gap-4">
             <h2 className="text-sm sm:text-base md:text-lg py-2 border-b border-white font-medium">
-              Apps
-            </h2>
-            {menu1.labels.map((l, index) => (
-              <Link
-                key={l}
-                href={`/apk/${menu1.links[index]}`}
-                className="text-xs sm:text-sm md:text-base font-light text-white"
-              >
-                {l}
-              </Link>
-            ))}
-          </div>
-          <div className="flex flex-col items-start justify-start gap-4">
-            <h2 className="text-sm sm:text-base md:text-lg py-2 border-b border-white font-medium">
               Category
             </h2>
-            {category.labels.map((l, index) => (
+            {category.map((l) => (
               <Link
-                key={l}
-                href={`${category.links[index]}/1`}
+                key={l.link}
+                href={`/apk/${l.link}`}
                 className="text-xs sm:text-sm md:text-base font-light text-white"
               >
-                {l}
+                {l.label}
               </Link>
             ))}
           </div>
@@ -40,13 +26,13 @@ const Footer = () => {
             <h2 className="text-sm sm:text-base md:text-lg py-2 border-b border-white font-medium">
               Website
             </h2>
-            {about.labels.map((l, index) => (
+            {footerLink.map((l, index) => (
               <Link
-                key={l}
-                href={about.links[index]}
+                key={l.link}
+                href={`/apk/${l.link}`}
                 className="text-xs sm:text-sm md:text-base font-light text-white"
               >
-                {l}
+                {l.label}
               </Link>
             ))}
           </div>
