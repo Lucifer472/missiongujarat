@@ -3,12 +3,12 @@ import dynamic from "next/dynamic";
 import "@/app/globals.css";
 import type { Metadata } from "next";
 import { CardImage, description, keywords, title, url } from "@/constant";
-import { Inter } from "next/font/google";
+import { Roboto_Slab } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 // import Script from "next/script";
 
 // Fonts
-const poppins = Inter({
+const poppins = Roboto_Slab({
   subsets: ["latin"],
   display: "swap",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],

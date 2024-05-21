@@ -121,12 +121,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           {blog?.category}
         </Link>
         <span className="text-xs mx-1">/</span>
-        <Link
-          href={`/blog/${params.slug}`}
-          className="text-xs text-gray-500 underline"
-        >
-          {blog?.title}
-        </Link>
+        <div className="text-xs text-gray-500">{blog?.title}</div>
       </div>
       <BlogMain blog={blog as any} link={categoryLink} />
       {faq && faq[0].question !== "" && (

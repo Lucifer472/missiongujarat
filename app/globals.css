@@ -85,6 +85,10 @@
   }
 
   /* blogs class */
+  .blog-styles {
+    color: black;
+  }
+
   .blog-styles p {
     @apply text-base sm:text-lg;
     color: black;
@@ -94,8 +98,13 @@
   }
 
   .blog-styles a {
-    color: crimson;
-    text-decoration: underline;
+    color: #a03131;
+    text-decoration: none;
+  }
+
+  .blog-styles a:hover {
+    color: #e64242;
+    text-decoration: none;
   }
 
   .blog-styles h1 {
@@ -133,8 +142,6 @@
     list-style: decimal;
     margin: 0.6em 0;
     line-height: 1.75;
-    font-weight: 300;
-    color: rgb(43, 53, 75);
   }
 
   .blog-styles ul li {
@@ -142,13 +149,6 @@
     list-style: disc;
     margin: 0.6em 0;
     line-height: 1.75;
-    font-weight: 300;
-    color: rgb(43, 53, 75);
-  }
-
-  .blog-styles ul a,
-  .blog-styles ol a {
-    color: darkblue;
   }
 
   .blog-styles mark {
@@ -167,7 +167,6 @@
     font-size: 1rem;
     font-weight: 300;
     font-style: italic;
-    background-color: rgb(241, 241, 241);
   }
 
   .blog-styles table {
