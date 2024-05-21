@@ -13,7 +13,7 @@ interface authorBlog extends blog {
 
 const BlogLink = ({ l }: { l: authorBlog }) => {
   return (
-    <Link href={`/blog/${l.url}`} key={l.id}>
+    <Link href={`/${l.url}`} key={l.id}>
       <article className="flex gap-1 p-2 cursor-pointer">
         <div className="min-w-[120px] h-[60px] sm:min-w-[160px] sm:h-[100px] md:min-w-[220px] md:h-[140px] relative">
           <Image

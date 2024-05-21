@@ -47,7 +47,7 @@ const BlogListing = ({
               blogData={mainBlogData}
             />
             <div className="col-span-3 bg-slate-50 rounded-sm">
-              <Link href={`/blog/${FirstBlog.url}`}>
+              <Link href={`/${FirstBlog.url}`}>
                 <article className="w-full flex flex-col cursor-pointer p-2 shadow-sm">
                   <div className="relative w-full h-[160px] md:h-[320px]">
                     <Image
@@ -80,7 +80,7 @@ const BlogListing = ({
         {!reversed && (
           <div className="w-full flex flex-col lg:grid lg:grid-cols-5 gap-4 py-4 md:py-8">
             <div className="col-span-3 bg-slate-50 rounded-sm">
-              <Link href={`/blog/${FirstBlog.url}`}>
+              <Link href={`/${FirstBlog.url}`}>
                 <article className="w-full flex flex-col cursor-pointer p-2 shadow-sm">
                   <div className="relative w-full h-[160px] md:h-[320px]">
                     <Image

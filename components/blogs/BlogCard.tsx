@@ -13,7 +13,7 @@ interface BlogCardProps {
 
 const BlogCard = ({ src, alt, title, author, date, slug }: BlogCardProps) => {
   return (
-    <Link href={`/blog/${slug}`}>
+    <Link href={`/${slug}`}>
       <article className="flex gap-1 py-6 border-b-2 border-gray-300 cursor-pointer w-full">
         <div className="col-span-1 max-w-fit min-w-[120px] h-[60px] sm:min-w-[150px] sm:h-[90px] relative">
           <Image src={src} fill alt={alt} style={{ objectFit: "cover" }} />

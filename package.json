@@ -49,6 +49,7 @@
     "@editorjs/quote": "^2.5.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/bcrypt": "^5.0.1",
+    "@types/google-publisher-tag": "^1.20240219.0",
     "@types/node": "^20",
     "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.4",

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { CardImage, description, keywords, title, url } from "@/constant";
 import { Roboto_Slab } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-// import Script from "next/script";
+import Script from "next/script";
 
 // Fonts
 const poppins = Roboto_Slab({
@@ -62,7 +62,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${poppins.className} overflow-x-hidden`}>
-        {/* <Script async crossOrigin="anonymous" strategy="beforeInteractive" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2320529624102171" /> */}
+        <Script
+          async
+          strategy="beforeInteractive"
+          src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+        />
         <Toaster position="top-center" />
         {/* <Notification /> */}
         <Navbar />

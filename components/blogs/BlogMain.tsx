@@ -21,7 +21,7 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
   const blogHeadings = blog.blog.filter((b: any) => b.type === "header");
 
   const BlogGen = dynamic(() => import("@/components/blogs/BlogGen"), {
-    ssr: true,
+    ssr: false,
   });
 
   return (

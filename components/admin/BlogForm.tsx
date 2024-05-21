@@ -40,7 +40,7 @@ const BlogForm = () => {
       faq: "",
       keywords: "",
       description: "",
-      category: "",
+      category: category[0].link,
     },
   });
 
@@ -147,7 +147,7 @@ const BlogForm = () => {
               <FormControl>
                 <Select
                   onValueChange={field.onChange}
-                  defaultValue={category[0].link}
+                  defaultValue={field.value}
                 >
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Category" />

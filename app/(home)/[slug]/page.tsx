@@ -2,13 +2,14 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { url } from "@/constant";
 import { getBlog } from "@/lib/blog-util";
-import getCurrentUser from "@/lib/user-util";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { redirect } from "next/navigation";
+import { Ad4, Ad5 } from "@/components/ads/ads";
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const blog = await getBlog({
@@ -26,18 +27,10 @@ const page = async ({ params }: { params: { slug: string } }) => {
   });
 
   if (blog === null) {
-    const NoBlog = dynamic(() => import("@/components/etc/NoBlog"), {
-      ssr: true,
-    });
-    return <NoBlog />;
+    return redirect("/");
   }
 
   const faq = JSON.parse(blog.faq as string);
-
-  if (blog.state === "pending") {
-    const user = await getCurrentUser();
-    if (user === null || user.type !== "admin") return null;
-  }
 
   const BlogMain = dynamic(() => import("@/components/blogs/BlogMain"), {
     ssr: true,
@@ -112,6 +105,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
         <span className="text-xs mx-1">/</span>
         <div className="text-xs text-gray-500">{blog?.title}</div>
       </div>
+      <Ad4 />
       <BlogMain blog={blog as any} link={blog.category} />
       {faq && faq[0].question !== "" && (
         <Accordion
@@ -139,6 +133,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           ))}
         </Accordion>
       )}
+      <Ad5 />
       <RecentBlog
         options={{
           take: 3,

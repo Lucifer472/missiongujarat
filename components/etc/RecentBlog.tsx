@@ -23,7 +23,7 @@ const RecentBlog = async ({ options }: { options: any }) => {
               key={b.id}
               title={b.title}
               img={b.img}
-              link={`/blog/${b.url}`}
+              link={`/${b.url}`}
               authorImg={b.Author?.img}
               authorName={b.Author?.name}
               updatedAt={b.updatedAt}
