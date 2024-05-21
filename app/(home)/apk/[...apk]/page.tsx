@@ -2,7 +2,7 @@ import currentPage from "@/components/etc/CurrentPage";
 import NoBlog from "@/components/etc/NoBlog";
 import Pagination from "@/components/etc/Pagination";
 import BlogList from "@/components/blogs/BlogList";
-import { menu1, url } from "@/constant";
+import { category, url } from "@/constant";
 import { getBlogs } from "@/lib/blog-util";
 
 const getBlogByCountry = async (apkString: string, page: number) => {
@@ -59,12 +59,12 @@ const getBlogByCountry = async (apkString: string, page: number) => {
 };
 
 const page = async ({ params }: { params: { apk: string[] } }) => {
-  const apkString = menu1.labels[menu1.links.indexOf(decodeURI(params.apk[0]))];
-  const currentPageNumber = currentPage(decodeURI(params.apk[1]));
+  // const apkString = category[category.indexOf(decodeURI(params.apk[0]))];
+  // const currentPageNumber = currentPage(decodeURI(params.apk[1]));
 
-  const data = await getBlogByCountry(apkString, currentPageNumber);
+  // const data = await getBlogByCountry(apkString, currentPageNumber);
 
-  if (apkString === undefined || data === null) return <NoBlog />;
+  // if (apkString === undefined || data === null) return <NoBlog />;
 
   const jsonLD = {
     "@context": "https://schema.org",
@@ -92,7 +92,7 @@ const page = async ({ params }: { params: { apk: string[] } }) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
       ></script>
       <div className="global-container flex flex-col gap-4 items-center justify-start bg-white py-4">
-        <BlogList
+        {/* <BlogList
           title={`${decodeURI(params.apk[0]).replace(/[-\s]/g, " ")}`}
           data={data.data}
         />
@@ -101,7 +101,7 @@ const page = async ({ params }: { params: { apk: string[] } }) => {
           isNextPage={data.isNextPage}
           isSecondNextPage={data.isNextNextPage}
           pageUrl={`/driving/${decodeURI(params.apk[0])}/`}
-        />
+        /> */}
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { about, category, menu1, url } from "@/constant";
+import { category, footerLink, url } from "@/constant";
 import { db } from "@/lib/db";
 import { MetadataRoute } from "next";
 
@@ -34,8 +34,8 @@ export default async function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  for (let i = 0; i < menu1.links.length; i++) {
-    const drivingUrl = `${url}/apk/${menu1.links[i]}`; // Assuming the URLs follow this pattern
+  for (let i = 0; i < category.length; i++) {
+    const drivingUrl = `${url}${category[i].link}`; // Assuming the URLs follow this pattern
     const sitemapEntry = {
       url: drivingUrl,
       lastModified: new Date(),
@@ -46,20 +46,8 @@ export default async function sitemap(): MetadataRoute.Sitemap {
     data.push(sitemapEntry);
   }
 
-  for (let i = 0; i < category.links.length; i++) {
-    const drivingUrl = `${url}${category.links[i]}`; // Assuming the URLs follow this pattern
-    const sitemapEntry = {
-      url: drivingUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    };
-    //@ts-ignore
-    data.push(sitemapEntry);
-  }
-
-  for (let i = 0; i < about.links.length; i++) {
-    const drivingUrl = `${url}${about.links[i]}`; // Assuming the URLs follow this pattern
+  for (let i = 0; i < footerLink.length; i++) {
+    const drivingUrl = `${url}${footerLink[i].link}`; // Assuming the URLs follow this pattern
     const sitemapEntry = {
       url: drivingUrl,
       lastModified: new Date(),

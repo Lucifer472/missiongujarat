@@ -1,6 +1,5 @@
 import SwitchNav from "@/components/admin/SwitchNav";
 import { getBlog } from "@/lib/blog-util";
-import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
 
 const page = async ({ params }: { params: { url: string } }) => {
@@ -12,12 +11,6 @@ const page = async ({ params }: { params: { url: string } }) => {
 
   if (data === null) return redirect("/admin");
   // const faq = await getFaq(data.id);
-
-  const { blog, title, url, category, description, keywords, expiredAt, id } =
-    data;
-  const BlogEdit = dynamic(() => import("@/components/admin/BlogEdit"), {
-    ssr: false,
-  });
   return (
     <section className="bg-slate-100 w-full h-full">
       <div className="global-container w-full h-full bg-white">

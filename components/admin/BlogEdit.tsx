@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
-import { format } from "date-fns";
 import {
   Form,
   FormControl,
@@ -28,7 +27,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { menu1, category } from "@/constant";
+import { category } from "@/constant";
 import Editor from "./Editor";
 import { useState } from "react";
 import { CalendarIcon } from "lucide-react";
@@ -171,7 +170,7 @@ const BlogEdit = ({
             </FormItem>
           )}
         />
-        <FormField
+        {/* <FormField
           control={form.control}
           name="category"
           render={({ field }) => (
@@ -205,47 +204,7 @@ const BlogEdit = ({
               <FormMessage />
             </FormItem>
           )}
-        />
-        <FormField
-          control={form.control}
-          name="expiredAt"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>Please Select a Expiry Date:</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) => date < new Date()}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <FormDescription>Expiry Date for the new Blog.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        /> */}
         <div className="flex flex-col w-full">
           <span className="pb-4 text-xl font-medium">Add Blog</span>
           <div className="w-full border border-slate-200 rounded-md px-10 py-8">

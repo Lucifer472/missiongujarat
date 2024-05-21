@@ -42,7 +42,6 @@ export async function POST(req: Request) {
         description,
         blog: block,
         category,
-        expiredAt,
         state: user.type === "user" ? "pending" : "approve",
       },
     });

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { category, menu1, url } from "@/constant";
+import { url } from "@/constant";
 import { getBlog } from "@/lib/blog-util";
 import getCurrentUser from "@/lib/user-util";
 import {
@@ -39,17 +39,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
     if (user === null || user.type !== "admin") return null;
   }
 
-  const findLink = (link: string): string => {
-    if (category.labels.indexOf(link) > -1) {
-      const catInd = category.labels.indexOf(link);
-      return `${category.links[catInd]}/1`;
-    }
-    const catIndex = menu1.labels.indexOf(link);
-    return `/driving/${menu1.links[catIndex]}`;
-  };
-
-  const categoryLink = findLink(blog.category as string);
-
   const BlogMain = dynamic(() => import("@/components/blogs/BlogMain"), {
     ssr: true,
   });
@@ -87,8 +76,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
       {
         "@type": "ListItem",
         position: 2,
-        name: `${blog?.category}`,
-        item: `${url}${categoryLink}/`,
+        name: `${blog?.category.slice(1).replace("-", " ")}`,
+        item: `${url}${blog?.category}/`,
       },
       {
         "@type": "ListItem",
@@ -115,15 +104,15 @@ const page = async ({ params }: { params: { slug: string } }) => {
         </Link>
         <span className="text-xs mx-1">/</span>
         <Link
-          href={categoryLink}
+          href={blog.category}
           className="text-xs text-gray-500 underline capitalize"
         >
-          {blog?.category}
+          {blog?.category.slice(1).replace("-", " ")}
         </Link>
         <span className="text-xs mx-1">/</span>
         <div className="text-xs text-gray-500">{blog?.title}</div>
       </div>
-      <BlogMain blog={blog as any} link={categoryLink} />
+      <BlogMain blog={blog as any} link={blog.category} />
       {faq && faq[0].question !== "" && (
         <Accordion
           type="single"

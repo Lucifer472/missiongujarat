@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { editSchema } from "../../schema/schema";
 import {
   Form,
   FormControl,
@@ -26,7 +25,8 @@ import {
 } from "@/components/ui/select";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useState } from "react";
-import { profileUpload } from "./profileUpload";
+import { editSchema } from "@/schema";
+import { profileUpload } from "@/lib/utils";
 
 const EditForm = ({
   values,
