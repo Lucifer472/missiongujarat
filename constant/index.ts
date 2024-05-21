@@ -42,6 +42,14 @@ export const footerLink = [
     link: "/author",
     label: "Author",
   },
+  {
+    link: "/privacy-policy",
+    label: "Privacy",
+  },
+  {
+    link: "/terms",
+    label: "Terms & Condition",
+  },
 ];
 
 export const faq = {
