@@ -90,12 +90,14 @@ export const Ad7 = () => {
 export const LargeAd = () => {
   return (
     <ClientWrapper>
-      <AdsWrapper
-        id="div-gpt-ad-1716294295818-0"
-        label="/23060189646/MSG_300x600"
-        size={[300, 600]}
-        divSize={{ x: 300, y: 600 }}
-      />
+      <>
+        <AdsWrapper
+          id="div-gpt-ad-1716294295818-0"
+          label="/23060189646/MSG_300x600"
+          size={[300, 600]}
+          divSize={{ x: 300, y: 600 }}
+        />
+      </>
     </ClientWrapper>
   );
 };

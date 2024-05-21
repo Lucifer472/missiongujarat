@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { redirect } from "next/navigation";
-import { Ad4, Ad5 } from "@/components/ads/ads";
+import { Ad4 } from "@/components/ads/ads";
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const blog = await getBlog({
@@ -133,7 +133,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
           ))}
         </Accordion>
       )}
-      <Ad5 />
       <RecentBlog
         options={{
           take: 3,

@@ -1,33 +1,7 @@
 "use client";
 import Image from "next/image";
-import { Ad1, Ad2, Ad3, LargeAd } from "../ads/ads";
 
 const BlogGen = ({ blog }: { blog: any }) => {
-  const adElement1 = {
-    type: "Ad",
-    data: LargeAd,
-  };
-
-  const adElement2 = {
-    type: "Ad",
-    data: Ad3,
-  };
-
-  const adElement3 = {
-    type: "Ad",
-    data: Ad2,
-  };
-
-  const adElement4 = {
-    type: "Ad",
-    data: Ad1,
-  };
-
-  blog.splice(1, 0, adElement1);
-  blog.splice(4, 0, adElement2);
-  blog.splice(7, 0, adElement3);
-  blog.splice(10, 0, adElement4);
-
   return (
     <div className="padding flex flex-col items-start justify-center gap-y-1 max-w-full xxs:max-w-[400px] xs:max-w-[500px] sm:max-[600px] md:max-w-[750px] mx-auto prose blog-styles ">
       {

@@ -4,6 +4,7 @@ import { convertDateFormat } from "@/lib/date-util";
 import { Separator } from "@/components/ui/separator";
 import { blog } from "@prisma/client";
 import Image from "next/image";
+import { Ad1, Ad2, Ad3, Ad5, LargeAd } from "../ads/ads";
 
 interface blogUser extends blog {
   Author: {
@@ -24,6 +25,31 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
     ssr: false,
   });
 
+  const adElement1 = {
+    type: "Ad",
+    data: LargeAd,
+  };
+
+  const adElement2 = {
+    type: "Ad",
+    data: Ad3,
+  };
+
+  const adElement3 = {
+    type: "Ad",
+    data: Ad2,
+  };
+
+  const adElement4 = {
+    type: "Ad",
+    data: Ad1,
+  };
+
+  blog.blog.splice(1, 0, adElement1);
+  blog.blog.splice(3, 0, adElement2);
+  blog.blog.splice(7, 0, adElement3);
+  blog.blog.splice(10, 0, adElement4);
+
   return (
     <article className="flex flex-col w-full ">
       <div className="padding">
@@ -31,6 +57,9 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
           {blog?.title}
         </h1>
       </div>
+      <TableContent headings={blogHeadings as any} />
+      <Ad5 />
+      <BlogGen blog={blog.blog} />
       <div className="border-y-2 border-black padding">
         <div className="flex gap-2 sm:gap-0 items-center justify-between w-full">
           <div className="flex items-center gap-2">
@@ -54,7 +83,7 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
               href={link}
               className="hover:underline capitalize hidden xss:block sm:text-sm"
             >
-              {blog?.category}
+              {blog?.category.slice(1).replace("-", " ")}
             </Link>
             <Separator orientation="vertical" />
             <time
@@ -66,8 +95,6 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
           </div>
         </div>
       </div>
-      <TableContent headings={blogHeadings as any} />
-      <BlogGen blog={blog.blog} />
     </article>
   );
 };
