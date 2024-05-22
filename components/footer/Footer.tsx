@@ -15,7 +15,7 @@ const Footer = () => {
             {category.map((l) => (
               <Link
                 key={l.link}
-                href={`/apk/${l.link}`}
+                href={`${l.link}`}
                 className="text-xs sm:text-sm md:text-base font-light text-white"
               >
                 {l.label}

@@ -94,9 +94,6 @@ const page = async ({ params }: { params: { username: string } }) => {
           },
           where: {
             author: decodeURI(params.username),
-            state: {
-              not: "pending",
-            },
           },
           include: {
             Author: {
