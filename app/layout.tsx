@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 import type { Metadata } from "next";
 
+import LoadingWrapper from "@/components/wrappers/loading-wrapper";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/footer/Footer";
 import { CardImage, description, keywords, title, url } from "@/constant";
@@ -66,7 +67,7 @@ export default function RootLayout({
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         />
         <Toaster position="top-center" />
-        {/* <Notification /> */}
+        <LoadingWrapper />
         <Navbar />
         {children}
         <ScrollToTop />

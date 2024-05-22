@@ -80,6 +80,20 @@
 
 /* Extra Rules */
 @layer components {
+  .loader {
+    width: 1%;
+    animation: loader forwards 4s ease-in;
+  }
+
+  @keyframes loader {
+    0% {
+      width: 1%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
   .padding {
     @apply px-2 py-3 md:px-3 md:py-4 lg:px-4 lg:py-5;
   }
