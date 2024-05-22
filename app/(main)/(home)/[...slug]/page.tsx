@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { Ad4 } from "@/components/ads/ads";
+import { Ad4, SmallAd } from "@/components/ads/ads";
 
 import NoBlog from "@/components/etc/NoBlog";
 import BlogList from "@/components/blogs/BlogList";
@@ -152,6 +152,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
 
   return (
     <>
+      <SmallAd />
       <div className="w-full padding md:py-4 bg-[#a03131] border-b border-gray-300/30 flex flex-wrap items-center justify-start">
         <div className="flex global-container flex-col">
           <div className="flex flex-wrap items-center justify-start">

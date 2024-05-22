@@ -101,3 +101,18 @@ export const LargeAd = () => {
     </ClientWrapper>
   );
 };
+
+export const SmallAd = () => {
+  return (
+    <ClientWrapper>
+      <>
+        <AdsWrapper
+          id="div-gpt-ad-1716380687194-0"
+          label="/23060189646/BNR"
+          size={[728, 90]}
+          divSize={{ x: 728, y: 90 }}
+        />
+      </>
+    </ClientWrapper>
+  );
+};
