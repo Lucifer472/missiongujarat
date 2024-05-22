@@ -26,7 +26,7 @@ const Footer = () => {
             <h2 className="text-sm sm:text-base md:text-lg py-2 border-b border-white font-medium">
               Website
             </h2>
-            {footerLink.map((l, index) => (
+            {footerLink.map((l) => (
               <Link
                 key={l.link}
                 href={`${l.link}`}

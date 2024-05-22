@@ -18,3 +18,46 @@ export const getEditBlogs = async (options: any) => {
   return data;
 };
 
+export const getBlogByCategory = async (category: string, page: number) => {
+  const pageSize = 12;
+  const data = await getBlogs({
+    skip: (page - 1) * pageSize,
+    take: pageSize,
+    orderBy: {
+      updatedAt: "desc",
+    },
+    where: {
+      category: category,
+    },
+    include: {
+      Author: {
+        select: {
+          name: true,
+          img: true,
+        },
+      },
+    },
+  });
+  // Calculate if there is a next-next page (isNextNextPage) by fetching one additional result and checking if it exists.
+  const NextPageData = await getBlogs({
+    skip: page * pageSize,
+    take: 1,
+    where: {
+      category: category,
+    },
+  });
+
+  const NextNextPageData = await getBlogs({
+    skip: (page + 1) * pageSize,
+    take: 1,
+    where: {
+      category: category,
+    },
+  });
+
+  const isNextPage = NextPageData.length === 1;
+  const isNextNextPage = NextNextPageData.length === 1;
+
+  if (data.length === 0) return null;
+  return { data, isNextPage, isNextNextPage };
+};

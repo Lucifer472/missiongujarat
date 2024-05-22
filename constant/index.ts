@@ -50,6 +50,10 @@ export const footerLink = [
     link: "/terms",
     label: "Terms & Condition",
   },
+  {
+    link: "/disclaimer",
+    label: "Disclaimer",
+  },
 ];
 
 export const faq = {

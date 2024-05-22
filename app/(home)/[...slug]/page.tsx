@@ -1,20 +1,74 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { url } from "@/constant";
-import { getBlog } from "@/lib/blog-util";
+import { redirect } from "next/navigation";
+
+import { category, url } from "@/constant";
+
+import { getBlog, getBlogByCategory } from "@/lib/blog-util";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { redirect } from "next/navigation";
+
 import { Ad4 } from "@/components/ads/ads";
 
-const page = async ({ params }: { params: { slug: string } }) => {
+import NoBlog from "@/components/etc/NoBlog";
+import BlogList from "@/components/blogs/BlogList";
+import Pagination from "@/components/etc/Pagination";
+
+const slugPage = async ({ params }: { params: { slug: string[] } }) => {
+  const params1 = params.slug[0];
+  const page = parseInt(params.slug[1] || "1");
+
+  const mainCategory = category.filter((f) => f.link.slice(1) === params1);
+
+  if (mainCategory.length > 0) {
+    const data = await getBlogByCategory(mainCategory[0].link, page);
+    if (data === null) return <NoBlog />;
+
+    const jsonLD = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Homepage",
+          item: url,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: `${decodeURI(params.slug[0]).replace(/[-\s]/g, " ")}`,
+          item: `${url}/${decodeURI(params.slug[0])}/`,
+        },
+      ],
+    };
+
+    return (
+      <section className="bg-slate-100 w-full h-full">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
+        ></script>
+        <div className="global-container flex flex-col gap-4 items-center justify-start bg-white py-4">
+          <BlogList title={`${mainCategory[0].label}`} data={data.data} />
+          <Pagination
+            currentPage={page}
+            isNextPage={data.isNextPage}
+            isSecondNextPage={data.isNextNextPage}
+            pageUrl={`${encodeURIComponent(mainCategory[0].link)}/`}
+          />
+        </div>
+      </section>
+    );
+  }
+
   const blog = await getBlog({
     where: {
-      url: params.slug,
+      url: params1,
     },
     include: {
       Author: {
@@ -156,4 +210,4 @@ const page = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default page;
+export default slugPage;
