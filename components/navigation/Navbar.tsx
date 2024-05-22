@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="h-16 md:h-20 w-full bg-red-600 fixed top-0 border-b border-gray-100 shadow-sm z-50">
+    <header className="h-16 md:h-20 w-full bg-[#a03131] relative top-0 border-b border-gray-100 shadow-sm z-50">
       <nav className="flex items-center justify-between w-full h-full relative global-container ">
         <Sidebar setSidebar={setIsOpen} sidebar={isOpen} />
         <Link href={"/"} className="items-center gap-2 flex">

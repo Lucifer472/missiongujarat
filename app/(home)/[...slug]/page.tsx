@@ -1,10 +1,9 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { redirect } from "next/navigation";
 
 import { category, url } from "@/constant";
 
-import { getBlog, getBlogByCategory } from "@/lib/blog-util";
+import { getBlog, getBlogByCategory, getBlogBySearch } from "@/lib/blog-util";
 import {
   Accordion,
   AccordionContent,
@@ -81,7 +80,23 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
   });
 
   if (blog === null) {
-    return redirect("/");
+    const searchTerm = params1;
+    const data = await getBlogBySearch(searchTerm, page);
+
+    if (data == null) return <NoBlog />;
+    return (
+      <section className="bg-slate-100 w-full h-full">
+        <div className="global-container flex flex-col gap-4 py-4 bg-white">
+          <BlogList title={`Result for ${searchTerm}`} data={data.data} />
+          <Pagination
+            currentPage={page}
+            isNextPage={data.isNextPage}
+            isSecondNextPage={data.isNextNextPage}
+            pageUrl={`/${searchTerm}/`}
+          />
+        </div>
+      </section>
+    );
   }
 
   const faq = JSON.parse(blog.faq as string);
@@ -136,77 +151,85 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
   };
 
   return (
-    <div className="bg-white global-container w-full h-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
-      ></script>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLDBreadcrumb) }}
-      ></script>
-      <div className="w-full padding border-b border-gray-300/30 flex flex-wrap items-center justify-start">
-        <Link href={"/"} className="text-xs text-gray-500 underline">
-          Home
-        </Link>
-        <span className="text-xs mx-1">/</span>
-        <Link
-          href={blog.category}
-          className="text-xs text-gray-500 underline capitalize"
-        >
-          {blog?.category.slice(1).replace("-", " ")}
-        </Link>
-        <span className="text-xs mx-1">/</span>
-        <div className="text-xs text-gray-500">{blog?.title}</div>
+    <>
+      <div className="w-full padding md:py-4 bg-[#a03131] border-b border-gray-300/30 flex flex-wrap items-center justify-start">
+        <div className="flex global-container flex-col">
+          <div className="flex flex-wrap items-center justify-start">
+            <Link href={"/"} className="text-[8px] underline text-gray-100">
+              Home
+            </Link>
+            <span className="text-[8px] mx-1 text-gray-100">{`>>`}</span>
+            <Link
+              href={blog.category}
+              className="text-[8px] underline capitalize text-gray-100"
+            >
+              {blog?.category.slice(1).replace("-", " ")}
+            </Link>
+            <span className="text-[8px] mx-1 text-gray-100">{`>>`}</span>
+          </div>
+          <h1 className="text-2xl leading-[1.2em] text-center text-white pt-4">
+            {blog.title}
+          </h1>
+        </div>
       </div>
-      <Ad4 />
-      <BlogMain blog={blog as any} link={blog.category} />
-      {faq && faq[0].question !== "" && (
-        <Accordion
-          type="single"
-          collapsible
-          className=" w-full mt-4 border-t border-gray-300"
-        >
-          <h2
-            style={{
-              fontSize: "1.5rem",
-              margin: ".6em 0",
-            }}
+      <div className="bg-white global-container w-full h-full">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
+        ></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLDBreadcrumb) }}
+        ></script>
+        <Ad4 />
+        <BlogMain blog={blog as any} link={blog.category} />
+        {faq && faq[0].question !== "" && (
+          <Accordion
+            type="single"
+            collapsible
+            className=" w-full mt-4 border-t border-gray-300"
           >
-            FAQ:
-          </h2>
-          {faq.map((f: any, index: number) => (
-            <AccordionItem value={`${index}`} key={index}>
-              <AccordionTrigger className="text-sm text-left">
-                {f.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-base">
-                {f.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      )}
-      <RecentBlog
-        options={{
-          take: 3,
-          orderBy: {
-            updatedAt: "desc",
-          },
-          where: {
-            category: blog?.category,
-          },
-          include: {
-            Author: {
-              select: {
-                name: true,
-                img: true,
+            <h2
+              style={{
+                fontSize: "1.5rem",
+                margin: ".6em 0",
+              }}
+            >
+              FAQ:
+            </h2>
+            {faq.map((f: any, index: number) => (
+              <AccordionItem value={`${index}`} key={index}>
+                <AccordionTrigger className="text-sm text-left">
+                  {f.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-base">
+                  {f.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        )}
+        <RecentBlog
+          options={{
+            take: 3,
+            orderBy: {
+              updatedAt: "desc",
+            },
+            where: {
+              category: blog?.category,
+            },
+            include: {
+              Author: {
+                select: {
+                  name: true,
+                  img: true,
+                },
               },
             },
-          },
-        }}
-      />
-    </div>
+          }}
+        />
+      </div>
+    </>
   );
 };
 

@@ -22,12 +22,12 @@ const BlogArticle = ({
   updatedAt,
 }: BlogArticleProps) => {
   return (
-    <Link href={link} className="py-2">
-      <article className="flex flex-col items-start w-full max-w-[300px] relative p-2 [&>h2]:hover:underline hover:shadow border rounded-md">
+    <Link href={link} className="py-2 w-full">
+      <article className="flex flex-col items-start w-full sm:max-w-[300px] relative p-2 [&>h2]:hover:underline hover:shadow border rounded-md">
         <div className="relative w-full h-[200px]">
           <Image src={img} alt="Fallback" fill style={{ objectFit: "cover" }} />
         </div>
-        <h2 className="font-medium h-[60px] mt-2 mb-2">
+        <h2 className="font-medium h-[80px] mt-2 mb-2">
           {textSlice(title, 60)}
         </h2>
         <div className="flex items-center justify-between gap-2 w-full">

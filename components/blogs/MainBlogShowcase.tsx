@@ -32,7 +32,7 @@ const MainBlogShowcase = ({ title, link, blogData }: MainBlogShowcaseProps) => {
           <h2 className="whitespace-nowrap text-lg sm:text-xl md:text-2xl">
             {title}
           </h2>
-          <div className="w-full h-[3px] bg-sky-300" />
+          <div className="w-full h-[3px] bg-main" />
         </div>
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="flex flex-col col-span-1">
@@ -47,7 +47,7 @@ const MainBlogShowcase = ({ title, link, blogData }: MainBlogShowcaseProps) => {
           </div>
         </div>
         <div className="py-4 w-full flex gap-2 items-center">
-          <div className="w-full h-[3px] bg-sky-300 " />
+          <div className="w-full h-[3px] bg-main " />
           <Link
             href={`${link}/1`}
             className="whitespace-nowrap text-lg sm:text-xl md:text-2xl flex gap-1 items-center cursor-pointer hover:text-sky-500 [&>div]:hover:-rotate-90"

@@ -17,7 +17,7 @@ const SearchBar = () => {
   const router = useRouter();
   const handleSearch = () => {
     if (searchInput) {
-      router.push(`/search/${searchInput}`);
+      router.push(`/${searchInput}`);
     } else {
       toast.error("Please Enter Text to Search!");
     }

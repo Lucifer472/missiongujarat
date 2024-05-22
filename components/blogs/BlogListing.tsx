@@ -34,7 +34,7 @@ const BlogListing = ({
   return (
     <section className="w-full h-full bg-white">
       <div className="global-container w-full flex flex-col">
-        <div className="w-full flex flex-col items-start justify-start border-b-4 border-sky-300 py-2 md:py-4">
+        <div className="w-full flex flex-col items-start justify-start border-b-4 border-main py-2 md:py-4">
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-700">
             {mainTitle}
           </h2>

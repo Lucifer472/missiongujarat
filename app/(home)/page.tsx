@@ -22,13 +22,13 @@ const jsonLD = {
         "@type": "ListItem",
         position: index + 2,
         name: l.label,
-        item: `${url}/driving/${l}`,
+        item: `${url}${l.link}`,
       };
     }),
   ],
 };
 
-export const revalidate = 3600;
+export const revalidate = 0;
 // Main Function
 export default async function Home() {
   const authors = await getAuthorByNumber(4);
@@ -93,7 +93,7 @@ export default async function Home() {
           reversed
         />
         <Faq />
-        <div className="flex flex-col w-full border-b-4 border-sky-300 py-4">
+        <div className="flex flex-col w-full border-b-4 border-main py-4">
           <h2 className="text-xl lg:text-2xl">Our Author&apos;s</h2>
         </div>
         <Authors authors={authors} />

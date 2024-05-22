@@ -1,11 +1,15 @@
 import dynamic from "next/dynamic";
-import "@/app/globals.css";
-import type { Metadata } from "next";
-import { CardImage, description, keywords, title, url } from "@/constant";
+import Script from "next/script";
 import { Roboto_Slab } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import Script from "next/script";
 
+import type { Metadata } from "next";
+
+import Navbar from "@/components/navigation/Navbar";
+import Footer from "@/components/footer/Footer";
+import { CardImage, description, keywords, title, url } from "@/constant";
+
+import "@/app/globals.css";
 // Fonts
 const poppins = Roboto_Slab({
   subsets: ["latin"],
@@ -49,12 +53,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const Navbar = dynamic(() => import("@/components/navigation/Navbar"), {
-    ssr: true,
-  });
-  const Footer = dynamic(() => import("@/components/footer/Footer"), {
-    ssr: true,
-  });
   const ScrollToTop = dynamic(() => import("@/components/etc/ScrollToTop"), {
     ssr: false,
   });
@@ -70,7 +68,7 @@ export default function RootLayout({
         <Toaster position="top-center" />
         {/* <Notification /> */}
         <Navbar />
-        <div className="mt-16 md:mt-20">{children}</div>
+        {children}
         <ScrollToTop />
         <Footer />
       </body>

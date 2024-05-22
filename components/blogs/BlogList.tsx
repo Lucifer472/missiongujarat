@@ -7,7 +7,7 @@ const BlogList = ({ title, data }: { title: string; data: any }) => {
         <h1 className="text-lg md:text-xl lg:text-2xl font-medium whitespace-nowrap capitalize">
           {title}
         </h1>
-        <div className="w-full border-b-4 border-sky-300" />
+        <div className="w-full border-b-4 border-main" />
       </div>
       <div className="flex flex-wrap items-center justify-center gap-2">
         {data.map((b: any) => (

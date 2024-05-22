@@ -44,13 +44,13 @@ const Sidebar = ({
         )}
       >
         <div className="border-b border-gray-300/30 flex items-center justify-between py-4">
-          <h1 className="pl-4 text-lg font-medium">Mission Gujarat</h1>
+          <h1 className="pl-4 text-lg font-medium">Main Menu</h1>
           <div className="pr-2 cursor-pointer">
             <SidebarClose onClick={() => setSidebar(false)} />
           </div>
         </div>
         <aside className="flex flex-col items-start justify-start px-4 py-2 gap-4">
-          <h3 className="py-2 border-b border-gray-400 w-full">Main Menu</h3>
+          <h3 className="py-2 border-b border-gray-400 w-full">Category</h3>
           <ul className="flex flex-col items-start justify-start gap-y-2">
             {category.map((l) => (
               <li key={l.link}>
@@ -62,7 +62,7 @@ const Sidebar = ({
               </li>
             ))}
           </ul>
-          <h3 className="py-2 border-b border-gray-400 w-full">Other Menu</h3>
+          <h3 className="py-2 border-b border-gray-400 w-full">Policies</h3>
           <ul className="flex flex-col items-start justify-start gap-y-2">
             {footerLink.map((l) => (
               <li key={l.link}>

@@ -67,11 +67,11 @@ const Faq = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
       ></script>
       <div className="w-full flex items-center justify-center gap-2 py-4">
-        <div className="w-full h-[4px] bg-sky-300" />
+        <div className="w-full h-[4px] bg-main" />
         <h2 className="text-lg md:text-xl lg:text-2xl whitespace-nowrap">
           Frequently Asked <strong>Question</strong>
         </h2>
-        <div className="w-full h-[4px] bg-sky-300" />
+        <div className="w-full h-[4px] bg-main" />
       </div>
       {faq.answer.map((a, index) => (
         <FaqComponnets answer={a} question={faq.questions[index]} key={index} />

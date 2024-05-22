@@ -60,7 +60,7 @@ export default async function sitemap(): MetadataRoute.Sitemap {
 
   const blogUrl = await getBlogUrl();
   for (let i = 0; i < blogUrl.length; i++) {
-    const drivingUrl = `${url}/blog/${blogUrl[i].url}`; // Assuming the URLs follow this pattern
+    const drivingUrl = `${url}/${blogUrl[i].url}`; // Assuming the URLs follow this pattern
     const sitemapEntry = {
       url: drivingUrl,
       lastModified: new Date(),

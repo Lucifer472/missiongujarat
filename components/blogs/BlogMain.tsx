@@ -15,10 +15,6 @@ interface blogUser extends blog {
 }
 
 const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
-  const TableContent = dynamic(() => import("@/components/etc/TableContent"), {
-    ssr: false,
-  });
-
   const blogHeadings = blog.blog.filter((b: any) => b.type === "header");
 
   const BlogGen = dynamic(() => import("@/components/blogs/BlogGen"), {
@@ -45,20 +41,19 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
     data: Ad1,
   };
 
-  blog.blog.splice(1, 0, adElement1);
-  blog.blog.splice(3, 0, adElement2);
+  const adElement5 = {
+    type: "Ad",
+    data: Ad5,
+  };
+
+  blog.blog.splice(2, 0, adElement1);
+  blog.blog.splice(5, 0, adElement2);
   blog.blog.splice(7, 0, adElement3);
   blog.blog.splice(10, 0, adElement4);
+  blog.blog.splice(12, 0, adElement5);
 
   return (
-    <article className="flex flex-col w-full ">
-      <div className="padding">
-        <h1 className="text-xl leading-[1.2em] sm:text-3xl md:text-4xl lg:text-6xl lg:leading-[1.5em] font-bold text-left text-gray-700">
-          {blog?.title}
-        </h1>
-      </div>
-      <TableContent headings={blogHeadings as any} />
-      <Ad5 />
+    <article className="flex flex-col w-full">
       <BlogGen blog={blog.blog} />
       <div className="border-y-2 border-black padding">
         <div className="flex gap-2 sm:gap-0 items-center justify-between w-full">
