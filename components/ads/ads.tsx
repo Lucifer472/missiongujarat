@@ -107,10 +107,10 @@ export const SmallAd = () => {
     <ClientWrapper>
       <>
         <AdsWrapper
-          id="div-gpt-ad-1716380687194-0"
+          id="div-gpt-ad-1716382408180-0"
           label="/23060189646/BNR"
-          size={[728, 90]}
-          divSize={{ x: 728, y: 90 }}
+          size={[300, 75]}
+          divSize={{ x: 300, y: 75 }}
         />
       </>
     </ClientWrapper>
