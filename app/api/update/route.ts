@@ -42,7 +42,6 @@ export async function POST(req: Request) {
         description,
         blog: block,
         category,
-        state: user.type === "user" ? "pending" : "approve",
       },
     });
 
@@ -54,7 +53,7 @@ export async function POST(req: Request) {
     }
   } catch (error) {
     return NextResponse.json({
-      Message: "An Error has Occured!",
+      Message: "An Error has Occurred!",
       data: error,
       status: 301,
     });

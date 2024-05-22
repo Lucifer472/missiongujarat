@@ -8,7 +8,7 @@ const listPage = async ({
 }: {
   searchParams: { [search: string]: null };
 }) => {
-  const handleParms = async (q: string | null) => {
+  const handlePrams = async (q: string | null) => {
     if (q !== undefined) {
       const res = await getEditBlogs({
         orderBy: {
@@ -50,7 +50,7 @@ const listPage = async ({
     });
     return res;
   };
-  const res = await handleParms(searchParams.search);
+  const res = await handlePrams(searchParams.search);
   return (
     <section className="bg-slate-100 w-full h-full">
       <div className="global-container w-full h-full bg-white">

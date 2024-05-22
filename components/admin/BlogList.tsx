@@ -12,7 +12,6 @@ const BlogList = ({
     url: string;
     title: string;
     id: number;
-    state: string;
   }[];
 }) => {
   const router = useRouter();
@@ -38,23 +37,7 @@ const BlogList = ({
           toast.success(data.Message);
           router.refresh();
         } else {
-          toast.error("An Error has Occured");
-          router.refresh();
-        }
-      });
-  };
-  const handleApprove = (id: number) => {
-    fetch("/api/approve", {
-      method: "POST",
-      body: JSON.stringify({ id }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.Message === "Blog has been Updated!") {
-          toast.success(data.Message);
-          router.refresh();
-        } else {
-          toast.error("An Error has Occured");
+          toast.error("An Error has Occurred");
           router.refresh();
         }
       });
@@ -92,17 +75,6 @@ const BlogList = ({
             <Button variant={"outline"} asChild>
               <Link href={`/blog/${data.url}`}>View</Link>
             </Button>
-            {data.state === "pending" ? (
-              <Button
-                variant={"default"}
-                className="bg-green-600"
-                onClick={() => handleApprove(data.id)}
-              >
-                Approve
-              </Button>
-            ) : (
-              ""
-            )}
             <Button
               variant={"destructive"}
               onClick={() => handleDelete(data.id)}
