@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { Ad4, SmallAd } from "@/components/ads/ads";
+import { Ad1, Ad2, Ad3, Ad4, SmallAd } from "@/components/ads/ads";
 
 import NoBlog from "@/components/etc/NoBlog";
 import BlogList from "@/components/blogs/BlogList";
@@ -53,6 +53,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
         ></script>
         <div className="global-container flex flex-col gap-4 items-center justify-start bg-white py-4">
+          <Ad1 />
           <BlogList title={`${mainCategory[0].label}`} data={data.data} />
           <Pagination
             currentPage={page}
@@ -60,6 +61,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
             isSecondNextPage={data.isNextNextPage}
             pageUrl={`${encodeURIComponent(mainCategory[0].link)}/`}
           />
+          <Ad2 />
         </div>
       </section>
     );
@@ -87,7 +89,9 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
     return (
       <section className="bg-slate-100 w-full h-full">
         <div className="global-container flex flex-col gap-4 py-4 bg-white">
+          <Ad1 />
           <BlogList title={`Result for ${searchTerm}`} data={data.data} />
+          <Ad3 />
           <Pagination
             currentPage={page}
             isNextPage={data.isNextPage}

@@ -1,3 +1,4 @@
+import { Ad5 } from "../ads/ads";
 import BlogArticle from "./BlogArticle";
 
 const BlogList = ({ title, data }: { title: string; data: any }) => {
@@ -9,6 +10,7 @@ const BlogList = ({ title, data }: { title: string; data: any }) => {
         </h1>
         <div className="w-full border-b-4 border-main" />
       </div>
+      <Ad5 />
       <div className="flex flex-wrap items-center justify-center gap-2">
         {data.map((b: any) => (
           <BlogArticle

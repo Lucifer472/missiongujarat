@@ -9,6 +9,9 @@ import { CardImage, description, keywords, title, url } from "@/constant";
 
 import "@/app/globals.css";
 import Footer from "@/components/footer/Footer";
+import InterstitialAd from "@/components/ads/interstitial-ad";
+import AnchorAd from "@/components/ads/anchor-ad";
+import ClientWrapper from "@/components/wrappers/client-wrapper";
 // Fonts
 const poppins = Roboto_Slab({
   subsets: ["latin"],
@@ -64,6 +67,12 @@ export default function RootLayout({
         <LoadingWrapper />
         {children}
         <Footer />
+        <ClientWrapper>
+          <>
+            <InterstitialAd />
+            <AnchorAd />
+          </>
+        </ClientWrapper>
       </body>
     </html>
   );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import RecentBlog from "@/components/etc/RecentBlog";
 import getAuthor from "@/lib/author-util";
 import { redirect } from "next/navigation";
+import { Ad1, Ad2 } from "@/components/ads/ads";
 
 const page = async ({ params }: { params: { username: string } }) => {
   const result = await getAuthor(decodeURI(params.username));
@@ -25,6 +26,7 @@ const page = async ({ params }: { params: { username: string } }) => {
       ></script>
       <section>
         <div className="global-container w-full bg-white">
+          <Ad1 />
           <div className="flex flex-col items-center justify-center gap-6 w-full h-full min-h-[600px]">
             <figure className="relative h-32 w-32 rounded-full">
               <Image
@@ -83,6 +85,7 @@ const page = async ({ params }: { params: { username: string } }) => {
                 />
               </a>
             </div>
+            <Ad2 />
           </div>
         </div>
       </section>
