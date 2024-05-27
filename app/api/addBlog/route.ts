@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     await db.blog.create({
       data: {
         title,
-        url: url.replace(/\s+/g, "-"),
+        url: url.toLowerCase().replace(/\s+/g, "-"),
         author: user.username,
         img,
         faq,

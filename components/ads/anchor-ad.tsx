@@ -16,7 +16,7 @@ const AnchorAd = () => {
         }
 
         // Enable SRA and services.
-        googletag.pubads().enableSingleRequest();
+        // googletag.pubads().enableSingleRequest();
         googletag.enableServices();
 
         googletag.display(anchorSlot);

@@ -209,4 +209,35 @@
   .blog-styles table tr:nth-of-type(2n) {
     background-color: rgb(240, 240, 240);
   }
+
+  /* Style for Demo */
+  .demo h2 {
+    @apply text-4xl leading-[1.6] font-bold text-center py-4;
+  }
+
+  .demo h3 {
+    @apply text-2xl font-bold text-center py-2;
+  }
+
+  .demo h4 {
+    @apply text-xl font-bold text-center py-2;
+  }
+
+  .demo p {
+    @apply py-4 px-2 text-justify;
+  }
+
+  .demo ol,
+  .demo ul {
+    @apply flex flex-col mx-6 py-2;
+  }
+
+  .demo ol p,
+  .demo ul p {
+    @apply py-1;
+  }
+
+  .demo span {
+    @apply font-bold;
+  }
 }

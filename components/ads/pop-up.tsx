@@ -19,7 +19,7 @@ const PopupAd = () => {
       const slot = googletag.defineSlot(unitID, AdSize, "ad-popup");
       if (slot) {
         slot.addService(googletag.pubads());
-        googletag.pubads().enableSingleRequest();
+        // googletag.pubads().enableSingleRequest();
         googletag.enableServices();
         //Listen for the 'slotRenderEnded' event
         googletag

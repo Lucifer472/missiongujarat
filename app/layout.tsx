@@ -29,13 +29,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: title,
-    title: `${title} Apk Download`,
+    title: `${title}`,
     description: description,
     images: CardImage,
   },
   openGraph: {
     type: "website",
-    siteName: `${title} Apk Download`,
+    siteName: `${title}`,
     description: description,
     url: url,
     countryName: "USA",
@@ -64,7 +64,7 @@ export default function RootLayout({
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         />
         <Toaster position="top-center" />
-        <LoadingWrapper />
+        {/* <LoadingWrapper /> */}
         {children}
         <Footer />
         <ClientWrapper>

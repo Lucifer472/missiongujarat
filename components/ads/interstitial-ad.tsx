@@ -34,7 +34,7 @@ const InterstitialAd = () => {
         }
 
         // Enable SRA and services.
-        googletag.pubads().enableSingleRequest();
+        // googletag.pubads().enableSingleRequest();
         googletag.enableServices();
         googletag.display(interstitialSlot);
       });`;

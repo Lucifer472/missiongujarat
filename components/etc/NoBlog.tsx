@@ -1,4 +1,5 @@
 import LinkBtn from "./LinkBtn";
+import RecentBlog from "./RecentBlog";
 
 const NoBlog = () => {
   return (
@@ -9,6 +10,7 @@ const NoBlog = () => {
         </span>
         <LinkBtn link="/" label="Go Home" className="bg-black text-white" />
       </div>
+      <RecentBlog options={{}} />
     </div>
   );
 };
