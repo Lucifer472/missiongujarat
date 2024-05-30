@@ -10,7 +10,17 @@ const NoBlog = () => {
         </span>
         <LinkBtn link="/" label="Go Home" className="bg-black text-white" />
       </div>
-      <RecentBlog options={{}} />
+      <RecentBlog
+        options={{
+          take: 4,
+          orderBy: {
+            createdAt: "desc",
+          },
+          include: {
+            Author: true,
+          },
+        }}
+      />
     </div>
   );
 };
