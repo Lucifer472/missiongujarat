@@ -1,4 +1,4 @@
-import { Ad1, Ad2, Ad3 } from "@/components/ads/ads";
+import { Ad1, Ad2, Ad3, SmallAd } from "@/components/ads/ads";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,7 +49,7 @@ const PanCardApply = () => {
             height={500}
           />
         </Link>
-        <Ad2 />
+        <SmallAd />
         <div className="max-w-7xl mx-auto w-full flex items-center justify-center flex-col my-4 px-2 gap-y-2">
           <Link
             href={"/pan-card-application-online-complete-information-2024"}
@@ -64,7 +64,7 @@ const PanCardApply = () => {
             ज्यादा जानें
           </Link>
         </div>
-        <Ad3 />
+        {/* <Ad3 /> */}
       </div>
     </main>
   );

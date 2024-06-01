@@ -1,13 +1,11 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { PuffLoader } from "react-spinners";
 
 const LoadingWrapper = () => {
   const [loading, setLoading] = useState(true);
   const [percentage, setPercentage] = useState(0);
-
-  const pathname = usePathname();
 
   useEffect(() => {
     setPercentage(0);
@@ -21,30 +19,33 @@ const LoadingWrapper = () => {
           return 100;
         }
       });
-    }, 40);
+    }, 15);
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, [pathname]);
+  }, []);
 
   useEffect(() => {
     setLoading(true);
     const timeoutId = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 2000);
 
     return () => clearTimeout(timeoutId);
-  }, [pathname]);
+  }, []);
 
   return (
     <>
       {loading && (
         <div className="w-full h-full min-h-screen bg-main fixed flex items-center justify-center flex-col gap-y-2 z-[9999] overflow-hidden">
           <span className="text-white leading-[2em] text-center text-3xl">
-            Loading... <br /> {percentage}%
+            Loading...
           </span>
-          <div className="flex items-start justify-start w-full">
-            <div className="bg-white h-1 loader"></div>
+          <div className="flex items-center justify-center w-full">
+            <PuffLoader color="#ffffff" />
           </div>
+          <span className="text-white leading-[2em] text-center text-3xl">
+            {percentage}%
+          </span>
           <div className="mt-[100px] h-2 w-full"></div>
         </div>
       )}

@@ -64,7 +64,7 @@ export default function RootLayout({
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         />
         <Toaster position="top-center" />
-        {/* <LoadingWrapper /> */}
+        <LoadingWrapper />
         {children}
         <Footer />
         <ClientWrapper>

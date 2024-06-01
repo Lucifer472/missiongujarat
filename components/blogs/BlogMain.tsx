@@ -49,8 +49,8 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
   blog.blog.splice(2, 0, adElement1);
   blog.blog.splice(5, 0, adElement2);
   blog.blog.splice(7, 0, adElement3);
-  blog.blog.splice(10, 0, adElement4);
-  blog.blog.splice(12, 0, adElement5);
+  // blog.blog.splice(10, 0, adElement4);
+  // blog.blog.splice(12, 0, adElement5);
 
   return (
     <article className="flex flex-col w-full">
