@@ -63,6 +63,18 @@ export default function RootLayout({
           strategy="beforeInteractive"
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TKHE64ET5C"
+          async
+          strategy="beforeInteractive"
+        ></Script>
+        <Script id="tags" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-TKHE64ET5C');`}
+        </Script>
         <Toaster position="top-center" />
         <LoadingWrapper />
         {children}
