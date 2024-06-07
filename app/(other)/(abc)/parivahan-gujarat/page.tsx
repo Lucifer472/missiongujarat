@@ -33,12 +33,12 @@ const aPage = () => {
 	</header><!-- .entry-header -->
 	
 	<div class="entry-content">
-		<p>A driving license is an important document every person should carry when driving a vehicle as per the law. In <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://housing.com/news/tag/gujarat/" target="_blank" rel="noopener">Gujarat</a></span>, the state transport department issues driving licenses to vehicle owners. In addition, it undertakes other functions such as vehicle registration, issuance of permits, and road tax collection. If you wish to apply for a driving license in Gujarat, you can submit an online application through the <strong>Parivahan Gujarat</strong> system.</p>
+		<p>A driving license is an important document every person should carry when driving a vehicle as per the law. In <span style="color: #0000ff;"><a style="color: #0000ff;" href="/" target="_blank" rel="noopener">Gujarat</a></span>, the state transport department issues driving licenses to vehicle owners. In addition, it undertakes other functions such as vehicle registration, issuance of permits, and road tax collection. If you wish to apply for a driving license in Gujarat, you can submit an online application through the <strong>Parivahan Gujarat</strong> system.</p>
 
 <p>Applicants can visit the <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://cot.gujarat.gov.in/index.htm" target="_blank" rel="nofollow noopener">official website of the Commissionerate of Transport</a></span>, Government of Gujarat, to apply for driving licence and various vehicle-related services in Gujarat.</p>
 
 <h2><span class="ez-toc-section" id="Parivahan_Gujarat_How_to_apply_for_a_driving_licence_online" ez-toc-data-id="#Parivahan_Gujarat_How_to_apply_for_a_driving_licence_online"></span><strong>Parivahan Gujarat: How to apply for a driving licence online?</strong><span class="ez-toc-section-end"></span></h2>
-<p>Citizens can apply for a permanent driving licence in Gujarat through the <span style="color: #0000ff;"><a style="color: #0000ff;" href="https://housing.com/news/parivahan-sewa-portal/" target="_blank" rel="noopener">Parivahan Sewa portal</a></span> of the Ministry of Highways and Road Transport.</p>
+<p>Citizens can apply for a permanent driving licence in Gujarat through the <span style="color: #0000ff;"><a style="color: #0000ff;" href="/" target="_blank" rel="noopener">Parivahan Sewa portal</a></span> of the Ministry of Highways and Road Transport.</p>
 <ul>
 <li>Go to parivahan.gov.in/parivahan portal. Click on ‘Driving License-Related Services’ under the ‘Online Services’ tab.</li>
 </ul>
