@@ -244,7 +244,7 @@ const bPage = () => {
       <div className="border-y-2 border-gray-700">
         <Ad1 />
       </div>
-      <h2> क्या आपकी उम्र 13 साल से ज्यादा है ? </h2>
+      <h2> क्या आप मजेदार वीडियो देखना चाहते है ? </h2>
       <ExtraButton href={link} className="bg-green-700 border-yellow-500">
         Yes ✅
       </ExtraButton>
