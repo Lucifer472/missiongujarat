@@ -2,14 +2,12 @@ import { Ad1, Ad2 } from "@/components/ads/ads";
 
 import ArticleViewDemo from "@/components/views/article-view-demo";
 
-import { getBlog } from "@/lib/blog-util";
+import { getBlogFromUrl } from "@/lib/blog";
 
 const cPage = async () => {
-  const data = await getBlog({
-    where: {
-      url: "scholarship-credit-status-now-check-the-status-of-scholarship-credit-from-home-in-minutes",
-    },
-  });
+  const data = await getBlogFromUrl(
+    "scholarship-credit-status-now-check-the-status-of-scholarship-credit-from-home-in-minutes"
+  );
   return (
     <section className="w-full mx-auto max-w-[420px] flex flex-col rounded-2xl p-2 border-2 border-gray-700 demo">
       <div className="border-y-2 border-gray-700">
@@ -36,7 +34,10 @@ const cPage = async () => {
         <Ad2 />
       </div>
 
-      <ArticleViewDemo blogData={data?.blog?.toString() as string} />
+      <ArticleViewDemo
+        title={data?.title}
+        blogData={data?.blog?.toString() as string}
+      />
     </section>
   );
 };

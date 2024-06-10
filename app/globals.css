@@ -212,19 +212,19 @@
 
   /* Style for Demo */
   .demo h2 {
-    @apply text-4xl leading-[1.6] font-bold text-center py-4;
+    @apply text-4xl leading-[1.6] font-bold text-center py-4 break-words;
   }
 
   .demo h3 {
-    @apply text-2xl font-bold text-center py-2;
+    @apply text-2xl font-bold text-center py-2 break-words;
   }
 
   .demo h4 {
-    @apply text-xl font-bold text-center py-2;
+    @apply text-xl font-bold text-center py-2 break-words;
   }
 
   .demo p {
-    @apply py-4 px-2 text-justify;
+    @apply py-4 px-2 text-justify break-words;
   }
 
   .demo ol,
@@ -234,10 +234,14 @@
 
   .demo ol p,
   .demo ul p {
-    @apply py-1;
+    @apply py-1 break-words;
+  }
+
+  .demo li {
+    @apply break-words max-w-[80vw];
   }
 
   .demo span {
-    @apply font-bold;
+    @apply font-bold break-words;
   }
 }

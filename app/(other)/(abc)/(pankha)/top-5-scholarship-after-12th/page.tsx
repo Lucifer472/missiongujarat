@@ -2,16 +2,15 @@ import { Ad1 } from "@/components/ads/ads";
 
 import ExtraButton from "@/components/etc/button-extra";
 import ArticleViewDemo from "@/components/views/article-view-demo";
-import { getBlog } from "@/lib/blog-util";
+
+import { getBlogFromUrl } from "@/lib/blog";
 
 const link = "/scholarship-credit-status";
 
 const bPage = async () => {
-  const data = await getBlog({
-    where: {
-      url: "top-5-scholarship-after-12th-these-are-the-best-scholarships-for-12th-pass-students",
-    },
-  });
+  const data = await getBlogFromUrl(
+    "top-5-scholarship-after-12th-these-are-the-best-scholarships-for-12th-pass-students"
+  );
   return (
     <section className="w-full mx-auto max-w-[420px]  flex flex-col rounded-2xl p-2 border-2 border-gray-700 demo">
       <div className="border-y-2 border-gray-700">
@@ -27,7 +26,10 @@ const bPage = async () => {
       >
         No ❌
       </ExtraButton>
-      <ArticleViewDemo blogData={data?.blog?.toString() as string} />
+      <ArticleViewDemo
+        title={data?.title}
+        blogData={data?.blog?.toString() as string}
+      />
     </section>
   );
 };

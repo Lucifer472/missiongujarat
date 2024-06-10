@@ -1,10 +1,17 @@
 import Image from "next/image";
 
-const ArticleViewDemo = ({ blogData }: { blogData: string }) => {
+const ArticleViewDemo = ({
+  blogData,
+  title,
+}: {
+  blogData: string;
+  title: string | undefined;
+}) => {
   const blog = JSON.parse(blogData);
 
   return (
     <article className="w-full flex flex-col items-start justify-start gap-y-1 prose demo">
+      <h2>{title as string}</h2>
       {
         // @ts-ignore
         blog.blocks.map((b: any, index) => {
