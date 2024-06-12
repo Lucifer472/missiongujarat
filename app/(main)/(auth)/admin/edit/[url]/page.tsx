@@ -1,7 +1,10 @@
+import { redirect } from "next/navigation";
+
 import BlogEdit from "@/components/admin/BlogEdit";
 import SwitchNav from "@/components/admin/SwitchNav";
+import ClientWrapper from "@/components/wrappers/client-wrapper";
+
 import { getBlog } from "@/lib/blog-util";
-import { redirect } from "next/navigation";
 
 const page = async ({ params }: { params: { url: string } }) => {
   const data = await getBlog({
@@ -23,15 +26,9 @@ const page = async ({ params }: { params: { url: string } }) => {
             <span className="text-xl font-medium">Edit Blogs</span>
           </div>
           <div>
-            <BlogEdit
-              values={data}
-              id={data.id}
-              blogData={{
-                time: 1700482255444,
-                blocks: data.blog,
-                version: "2.28.2",
-              }}
-            />
+            <ClientWrapper>
+              <BlogEdit values={data} id={data.id} blogData={data.blog} />
+            </ClientWrapper>
           </div>
         </div>
       </div>

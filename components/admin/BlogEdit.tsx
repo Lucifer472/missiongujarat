@@ -31,7 +31,7 @@ import { category } from "@/constant";
 import { blog } from "@prisma/client";
 import { blogSchema } from "@/schema";
 
-// Mian BLog section
+// Main BLog section
 
 const BlogEdit = ({
   values,
