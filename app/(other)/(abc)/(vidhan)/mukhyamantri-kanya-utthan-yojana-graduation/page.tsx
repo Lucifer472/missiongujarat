@@ -1,4 +1,4 @@
-import { Ad1 } from "@/components/ads/ads";
+import { Ad1, SmallAd1 } from "@/components/ads/ads";
 import ExtraButton from "@/components/etc/button-extra";
 
 const link = "/mukhyamantri-meghavriti-yojana-2024";
@@ -74,7 +74,7 @@ const bPage = () => {
       >
         No ❌
       </ExtraButton>
-
+      <SmallAd1 />
       <div dangerouslySetInnerHTML={{ __html: page }} className="demo"></div>
     </section>
   );

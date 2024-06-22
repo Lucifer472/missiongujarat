@@ -1,4 +1,4 @@
-import { Ad1, Ad2 } from "@/components/ads/ads";
+import { Ad1, Ad2, Ad3 } from "@/components/ads/ads";
 
 const link = "/vidyadhan-scholarship-2024";
 
@@ -74,7 +74,7 @@ const cPage = () => {
   return (
     <section className="w-full mx-auto max-w-[420px] flex flex-col rounded-2xl p-2 border-2 border-gray-700 demo">
       <div className="border-y-2 border-gray-700">
-        <Ad1 />
+        <Ad3 />
       </div>
       <div className="w-full my-4 flex items-center justify-center">
         <iframe

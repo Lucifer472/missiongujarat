@@ -1,8 +1,10 @@
 "use client";
-import Link from "next/link";
-import { Button } from "../ui/button";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import toast from "react-hot-toast";
+
+import { Button } from "@/components/ui/button";
+
 import { cn } from "@/lib/utils";
 
 const BlogList = ({

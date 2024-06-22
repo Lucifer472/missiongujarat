@@ -1,4 +1,4 @@
-import { Ad1 } from "@/components/ads/ads";
+import { Ad1, Ad2, SmallAd1 } from "@/components/ads/ads";
 import ExtraButton from "@/components/etc/button-extra";
 
 const link = "/driving-licence";
@@ -63,7 +63,7 @@ const aPage = () => {
   return (
     <section className="w-full mx-auto max-w-[420px]  flex flex-col rounded-2xl p-2 border-2 border-gray-700 demo">
       <div className="border-y-2 border-gray-700">
-        <Ad1 />
+        <Ad2 />
       </div>
       <h2>क्या आप ड्राइविंग लाइसेंस बनवाना चाहते हो?</h2>
       <ExtraButton href={link} className="bg-green-700 border-yellow-500">
@@ -75,6 +75,7 @@ const aPage = () => {
       >
         No ❌
       </ExtraButton>
+      <SmallAd1 />
       <div dangerouslySetInnerHTML={{ __html: page }} className="demo"></div>
     </section>
   );

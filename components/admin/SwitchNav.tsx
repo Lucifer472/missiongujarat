@@ -1,7 +1,9 @@
-import { cn } from "@/lib/utils";
 import Link from "next/link";
-import Logout from "../login/Logout";
+
+import Logout from "@/components/login/Logout";
+
 import getCurrentUser from "@/lib/user-util";
+import { cn } from "@/lib/utils";
 
 const SwitchNav = async ({ selected }: { selected: string }) => {
   const user = await getCurrentUser();
