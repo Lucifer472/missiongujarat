@@ -1,6 +1,7 @@
 import { Ad1, Ad2 } from "@/components/ads/ads";
 
 import ArticleViewDemo from "@/components/views/article-view-demo";
+import ArticleViewDemoObject from "@/components/views/article-view-demo-object";
 
 import { getBlogFromUrl } from "@/lib/blog";
 
@@ -34,9 +35,9 @@ const cPage = async () => {
         <Ad2 />
       </div>
 
-      <ArticleViewDemo
+      <ArticleViewDemoObject
         title={data?.title}
-        blogData={data?.blog?.toString() as string}
+        blogData={data?.blog as object[]}
       />
     </section>
   );
