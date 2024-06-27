@@ -1,7 +1,6 @@
 import { Ad1, Ad3, SmallAd1 } from "@/components/ads/ads";
 
 import ExtraButton from "@/components/etc/button-extra";
-import ArticleViewDemo from "@/components/views/article-view-demo";
 import ArticleViewDemoObject from "@/components/views/article-view-demo-object";
 
 import { getBlogFromUrl } from "@/lib/blog";
