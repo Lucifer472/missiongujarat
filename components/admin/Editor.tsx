@@ -31,7 +31,7 @@ const Editor = ({
 
   useEffect(() => {
     if (initialData) {
-      setData(initialData);
+      setData(initialData.toString());
     }
   }, [initialData, setData]);
 
@@ -39,7 +39,7 @@ const Editor = ({
     if (!editorRef.current) {
       editorRef.current = new EditorJS({
         holder: "editorjs",
-        data: JSON.parse(initialData),
+        data: initialData ? initialData : [],
         tools: {
           header: {
             class: Header,

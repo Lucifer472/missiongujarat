@@ -1,16 +1,14 @@
-import { Ad1, Ad4, SmallAd2 } from "@/components/ads/ads";
+import { Ad4, SmallAd2 } from "@/components/ads/ads";
 
 import ExtraButton from "@/components/etc/button-extra";
-import ArticleViewDemo from "@/components/views/article-view-demo";
+import ArticleViewDemoObject from "@/components/views/article-view-demo-object";
 
 import { getBlogFromUrl } from "@/lib/blog";
 
 const link = "/scholarship-credit-status";
 
 const bPage = async () => {
-  const data = await getBlogFromUrl(
-    "top-5-scholarship-after-12th-these-are-the-best-scholarships-for-12th-pass-students"
-  );
+  const data = await getBlogFromUrl("pm-mudra-loan-yojana-2024");
 
   return (
     <section className="w-full mx-auto max-w-[420px]  flex flex-col rounded-2xl p-2 border-2 border-gray-700 demo">
@@ -28,10 +26,7 @@ const bPage = async () => {
         No ❌
       </ExtraButton>
       <SmallAd2 />
-      <ArticleViewDemo
-        title={data?.title}
-        blogData={data?.blog?.toString() as string}
-      />
+      <ArticleViewDemoObject title={data?.title} blogData={data?.blog as any} />
     </section>
   );
 };

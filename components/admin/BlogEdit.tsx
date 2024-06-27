@@ -56,6 +56,12 @@ const BlogEdit = ({
     },
   });
 
+  const initialData = {
+    time: 1719483963783,
+    blocks: blogData,
+    version: "2.29.1",
+  };
+
   function onSubmit(values: z.infer<typeof blogSchema>) {
     fetch("/api/update", {
       method: "POST",
@@ -186,7 +192,7 @@ const BlogEdit = ({
         <div className="flex flex-col w-full">
           <span className="pb-4 text-xl font-medium">Add Blog</span>
           <div className="w-full border border-slate-200 rounded-md px-10 py-8">
-            <Editor setData={setData} initialData={blogData} />
+            <Editor setData={setData} initialData={initialData} />
           </div>
         </div>
         <div className="flex flex-col w-full">

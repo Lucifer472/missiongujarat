@@ -1,6 +1,5 @@
 import { Ad1, Ad2 } from "@/components/ads/ads";
 
-import ArticleViewDemo from "@/components/views/article-view-demo";
 import ArticleViewDemoObject from "@/components/views/article-view-demo-object";
 
 import { getBlogFromUrl } from "@/lib/blog";
