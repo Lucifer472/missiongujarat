@@ -224,7 +224,7 @@
   }
 
   .demo p {
-    @apply py-4 px-2 text-justify break-words max-w-[80%] mx-auto;
+    @apply py-4 px-2 text-justify break-words max-w-[90%] mx-auto;
   }
 
   .demo ol,
