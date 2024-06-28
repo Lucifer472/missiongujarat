@@ -42,7 +42,11 @@ const BlogEdit = ({
   id: number;
   blogData: any;
 }) => {
-  const [data, setData] = useState<any>({});
+  const [data, setData] = useState<any>({
+    time: 1719483963783,
+    blocks: blogData,
+    version: "2.29.1",
+  });
 
   const form = useForm<z.infer<typeof blogSchema>>({
     resolver: zodResolver(blogSchema),
@@ -56,13 +60,8 @@ const BlogEdit = ({
     },
   });
 
-  const initialData = {
-    time: 1719483963783,
-    blocks: blogData,
-    version: "2.29.1",
-  };
-
   function onSubmit(values: z.infer<typeof blogSchema>) {
+    console.log(data);
     fetch("/api/update", {
       method: "POST",
       body: JSON.stringify({ ...values, data, id }),
@@ -192,7 +191,7 @@ const BlogEdit = ({
         <div className="flex flex-col w-full">
           <span className="pb-4 text-xl font-medium">Add Blog</span>
           <div className="w-full border border-slate-200 rounded-md px-10 py-8">
-            <Editor setData={setData} initialData={initialData} />
+            <Editor setData={setData} initialData={data} />
           </div>
         </div>
         <div className="flex flex-col w-full">

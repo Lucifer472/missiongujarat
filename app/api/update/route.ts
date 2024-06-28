@@ -10,6 +10,8 @@ export async function POST(req: Request) {
   const { title, url, keywords, description, data, category, faq, id } =
     await req.json();
 
+  console.log(data);
+
   const block = data.blocks;
   let img = " ";
   for (const e of block) {
