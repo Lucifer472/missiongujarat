@@ -7,8 +7,8 @@ export const Ad1 = () => {
   return (
     <ClientWrapper>
       <AdsWrapper
-        id="div-gpt-ad-1716293817918-0"
-        label="/23060189646/MSG_1_336X280"
+        id="div-gpt-ad-1719579629904-0"
+        label="/23060189646/N1"
         size={[336, 280]}
       />
     </ClientWrapper>
@@ -19,8 +19,8 @@ export const Ad2 = () => {
   return (
     <ClientWrapper>
       <AdsWrapper
-        id="div-gpt-ad-1716293894103-0"
-        label="/23060189646/MSG_2_336X280"
+        id="div-gpt-ad-1719579703067-0"
+        label="/23060189646/N2"
         size={[336, 280]}
       />
     </ClientWrapper>
@@ -31,8 +31,8 @@ export const Ad3 = () => {
   return (
     <ClientWrapper>
       <AdsWrapper
-        id="div-gpt-ad-1716294004840-0"
-        label="/23060189646/MSG_3_336X280"
+        id="div-gpt-ad-1719579742610-0"
+        label="/23060189646/N3"
         size={[336, 280]}
       />
     </ClientWrapper>
@@ -43,8 +43,8 @@ export const Ad4 = () => {
   return (
     <ClientWrapper>
       <AdsWrapper
-        id="div-gpt-ad-1716294031183-0"
-        label="/23060189646/MSG_4_336X280"
+        id="div-gpt-ad-1719579791773-0"
+        label="/23060189646/N4"
         size={[336, 280]}
       />
     </ClientWrapper>
