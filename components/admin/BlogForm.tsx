@@ -29,6 +29,8 @@ import { FaqEditor } from "./FaqForm";
 
 import { category } from "@/constant";
 import { blogSchema } from "@/schema";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { LiveBlogSearch } from "./live-blog-search";
 
 const BlogForm = () => {
   const [data, setData] = useState<any>({});
@@ -41,10 +43,16 @@ const BlogForm = () => {
       keywords: "",
       description: "",
       category: category[0].link,
+      isIndex: "one",
+      connect: null,
+      isPending: "true",
+      pageText: "",
     },
   });
+  const indexValues = ["one", "two", "three"];
 
   function onSubmit(values: z.infer<typeof blogSchema>) {
+    console.log(values);
     fetch("/api/addBlog", {
       method: "POST",
       body: JSON.stringify({ ...values, data }),
@@ -168,6 +176,99 @@ const BlogForm = () => {
               <FormDescription>
                 Please Select Category of the Scholarship
               </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="isPending"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>
+                Pending or Not (Pending Blog Not Available without URL)
+              </FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value.toString()}
+                  className="flex flex-col space-y-1"
+                >
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="true" />
+                    </FormControl>
+                    <FormLabel className="font-normal">is Pending</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="false" />
+                    </FormControl>
+                    <FormLabel className="font-normal">
+                      is Not Pending
+                    </FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="isIndex"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Index Page</FormLabel>
+              <FormControl>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {indexValues.map((l) => (
+                      <SelectItem key={l} value={l} className="capitalize">
+                        {l}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormDescription>
+                Please Select Index for Page (default: One)
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="connect"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Connect to Blog</FormLabel>
+              <FormControl>
+                <LiveBlogSearch initialValue={null} setField={field.onChange} />
+              </FormControl>
+              <FormDescription>Connect to Next Page</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="pageText"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Page Text</FormLabel>
+              <FormControl>
+                {/* @ts-ignore */}
+                <Input placeholder="Main Title" {...field} />
+              </FormControl>
+              <FormDescription>This is the Main Title</FormDescription>
               <FormMessage />
             </FormItem>
           )}

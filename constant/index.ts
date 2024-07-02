@@ -56,16 +56,16 @@ export const footerLink = [
   },
 ];
 
-export const faq = {
-  questions: [
-    "This is the First Qustion that need to be Answered 1",
-    "This is the First Qustion that need to be Answered 2",
-  ],
-  answer: [
-    "This is the First Question and it answer that we suppose to be here it is the first question and the Answet remebered that okay 1",
-    "This is the First Question and it answer that we suppose to be here it is the first question and the Answet remebered that okay 2",
-  ],
-};
+// export const faq = {
+//   questions: [
+//     "This is the First Qustion that need to be Answered 1",
+//     "This is the First Qustion that need to be Answered 2",
+//   ],
+//   answer: [
+//     "This is the First Question and it answer that we suppose to be here it is the first question and the Answet remebered that okay 1",
+//     "This is the First Question and it answer that we suppose to be here it is the first question and the Answet remebered that okay 2",
+//   ],
+// };
 
 export const byFile = "https://images.drivingexamexpert.com/upload/blog.php";
 export const byUrl = "https://images.drivingexamexpert.com/upload/url.php";

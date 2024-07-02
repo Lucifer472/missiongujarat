@@ -2,7 +2,7 @@ import { Ad1, Ad2, Ad3, Ad4, Ad5 } from "@/components/ads/ads";
 import BlogListing from "@/components/blogs/BlogListing";
 import MainBlogShowcase from "@/components/blogs/MainBlogShowcase";
 import Authors from "@/components/etc/AuthorList";
-import Faq from "@/components/etc/Faq";
+// import Faq from "@/components/etc/Faq";
 
 import { category, url } from "@/constant";
 import { getAuthorByNumber } from "@/lib/author-util";
@@ -36,6 +36,9 @@ export default async function Home() {
 
   const latestBlogs = await getBlogs({
     take: 4,
+    where: {
+      isPending: false,
+    },
     orderBy: {
       createdAt: "desc",
     },
@@ -48,6 +51,7 @@ export default async function Home() {
     take: 4,
     where: {
       category: "/government-yojana",
+      isPending: false,
     },
     orderBy: {
       createdAt: "desc",
@@ -61,6 +65,7 @@ export default async function Home() {
     take: 10,
     where: {
       category: "/application",
+      isPending: false,
     },
     orderBy: {
       createdAt: "desc",
@@ -97,7 +102,7 @@ export default async function Home() {
           reversed
         />
         <Ad5 />
-        <Faq />
+        {/* <Faq /> */}
         <Ad4 />
         <div className="flex flex-col w-full border-b-4 border-main py-4">
           <h2 className="text-xl lg:text-2xl">Our Author&apos;s</h2>

@@ -77,4 +77,8 @@ export const blogSchema = z.object({
   }),
   category: z.string(),
   faq: z.string(),
+  isPending: z.enum(["true", "false"]),
+  isIndex: z.enum(["one", "two", "three"]),
+  connect: z.string().nullable(),
+  pageText: z.string().nullable(),
 });

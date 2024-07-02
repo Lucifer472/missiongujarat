@@ -77,7 +77,6 @@ const Editor = ({
           editorRef.current
             ?.save()
             .then((outputData: any) => {
-              console.log(outputData);
               setData(outputData);
             })
             .catch((error: any) => {

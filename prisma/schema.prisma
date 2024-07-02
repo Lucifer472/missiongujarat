@@ -23,6 +23,12 @@ enum type {
   user
 }
 
+enum isIndex {
+  one
+  two
+  three
+}
+
 model user {
   id        Int      @id @default(autoincrement())
   username  String   @unique
@@ -39,6 +45,7 @@ model user {
   twitter   String
   blogs     blog[]
 }
+
 model blog {
   id          Int      @id @default(autoincrement())
   date        DateTime @default(now())
@@ -57,6 +64,12 @@ model blog {
   Author   user?   @relation(fields: [author], references: [username])
 
   faq     Json?     
+
+  isPending    Boolean     @default(false)
+  isIndex      isIndex     @default(one)
+
+  pageText    String?
+  connect     String?
 
   @@index([author])
 }

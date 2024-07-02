@@ -91,7 +91,7 @@ const Footer = () => {
               <Link href={"/"} className="flex items-center gap-2">
                 <MapPin className="w-5 sm:w-6 md:w-8 h-full " />
                 <span className="text-xs sm:text-sm md:text-base lg:text-lg font-light">
-                  11,Exmple Streee,Exmple City,India - 3820000
+                  12, Old City, Kalupur, Ahmedabad, Gujarat 380001
                 </span>
               </Link>
             </div>

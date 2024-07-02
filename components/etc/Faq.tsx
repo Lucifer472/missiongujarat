@@ -1,48 +1,48 @@
 "use client";
 
-import { faq } from "@/constant";
+// import { faq } from "@/constant";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-const FaqComponnets = ({
-  question,
-  answer,
-}: {
-  question: string;
-  answer: string;
-}) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+// const FaqComponents = ({
+//   question,
+//   answer,
+// }: {
+//   question: string;
+//   answer: string;
+// }) => {
+//   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  return (
-    <div className="flex flex-col gap-4 px-4 py-2 shadow-md max-w-[700px] mx-auto border border-gray-300/30 rounded-sm">
-      <div
-        className="flex items-center justify-between gap-2 pt-2 sm:pt-4 sm:px-2 cursor-pointer"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <h3 className="text-base sm:text-lg md:text-xl font-medium">
-          {question}
-        </h3>
-        <ChevronDown
-          className={cn(
-            "w-10 h-10 relative transition-transform duration-300 ease-in-out",
-            isOpen ? "rotate-0" : "-rotate-90"
-          )}
-        />
-      </div>
-      <div
-        className={cn(
-          "w-full overflow-hidden transition-all duration-500 ease-in-out",
-          isOpen ? "max-h-[300px]" : "max-h-0"
-        )}
-      >
-        <p className="pb-2 sm:px-2 text-base sm:text-lg md:text-xl text-gray-700">
-          {answer}
-        </p>
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="flex flex-col gap-4 px-4 py-2 shadow-md max-w-[700px] mx-auto border border-gray-300/30 rounded-sm">
+//       <div
+//         className="flex items-center justify-between gap-2 pt-2 sm:pt-4 sm:px-2 cursor-pointer"
+//         onClick={() => setIsOpen(!isOpen)}
+//       >
+//         <h3 className="text-base sm:text-lg md:text-xl font-medium">
+//           {question}
+//         </h3>
+//         <ChevronDown
+//           className={cn(
+//             "w-10 h-10 relative transition-transform duration-300 ease-in-out",
+//             isOpen ? "rotate-0" : "-rotate-90"
+//           )}
+//         />
+//       </div>
+//       <div
+//         className={cn(
+//           "w-full overflow-hidden transition-all duration-500 ease-in-out",
+//           isOpen ? "max-h-[300px]" : "max-h-0"
+//         )}
+//       >
+//         <p className="pb-2 sm:px-2 text-base sm:text-lg md:text-xl text-gray-700">
+//           {answer}
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
 
 const jsonLD = {
   "@context": "https://schema.org",
@@ -73,9 +73,9 @@ const Faq = () => {
         </h2>
         <div className="w-full h-[4px] bg-main" />
       </div>
-      {faq.answer.map((a, index) => (
-        <FaqComponnets answer={a} question={faq.questions[index]} key={index} />
-      ))}
+      {/* {faq.answer.map((a, index) => (
+        <FaqComponents answer={a} question={faq.questions[index]} key={index} />
+      ))} */}
     </div>
   );
 };
