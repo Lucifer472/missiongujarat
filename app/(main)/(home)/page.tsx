@@ -101,7 +101,7 @@ export default async function Home() {
           blogData={gov}
           reversed
         />
-        <Ad5 />
+        {/* <Ad5 /> */}
         {/* <Faq /> */}
         <Ad4 />
         <div className="flex flex-col w-full border-b-4 border-main py-4">

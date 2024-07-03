@@ -41,7 +41,7 @@ export const AdsWrapper = ({
     return () => {
       if (googletag && sl !== null) {
         googletag.cmd.push(function () {
-          googletag.destroySlots([sl as googletag.Slot]);
+          googletag.pubads().refresh();
         });
       }
     };

@@ -1,11 +1,16 @@
+"use client";
 import { category, footerLink, url } from "@/constant";
+import { cn } from "@/lib/utils";
+import { useNavStore } from "@/state";
 import { Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
+  const isShow = useNavStore((state) => state.isShow);
+
   return (
-    <footer className="w-full bg-black">
+    <footer className={cn("w-full bg-black", isShow ? "block" : "hidden")}>
       <div className="global-container flex flex-col text-white p-8">
         <div className="flex items-start justify-between flex-wrap gap-6 py-4">
           <div className="flex flex-col items-start justify-start gap-4">

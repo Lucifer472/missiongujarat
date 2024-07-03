@@ -1,3 +1,7 @@
+"use client";
+import { useEffect } from "react";
+import { useNavStore } from "@/state";
+
 import Image from "next/image";
 
 const ArticleViewDemoObject = ({
@@ -7,6 +11,14 @@ const ArticleViewDemoObject = ({
   blogData?: object[];
   title: string | undefined;
 }) => {
+  const toggle = useNavStore((state) => state.toggle);
+
+  useEffect(() => {
+    toggle(false);
+
+    return () => toggle(true);
+  }, [toggle]);
+
   return (
     <article className="w-full flex flex-col items-start justify-start gap-y-1 prose demo">
       <h2>{title as string}</h2>

@@ -7,12 +7,20 @@ import { category, title } from "@/constant";
 import { Button } from "@/components/ui/button";
 import SearchBar from "./SearchBar";
 import Sidebar from "./Sidebar";
+import { useNavStore } from "@/state";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const isShow = useNavStore((state) => state.isShow);
 
   return (
-    <header className="h-16 md:h-20 w-full bg-[#a03131] relative top-0 border-b border-gray-100 shadow-sm z-50">
+    <header
+      className={cn(
+        "h-16 md:h-20 w-full bg-[#a03131] relative top-0 border-b border-gray-100 shadow-sm z-50",
+        isShow ? "block" : "hidden"
+      )}
+    >
       <nav className="flex items-center justify-between w-full h-full relative global-container ">
         <Sidebar setSidebar={setIsOpen} sidebar={isOpen} />
         <Link href={"/"} className="items-center gap-2 flex">

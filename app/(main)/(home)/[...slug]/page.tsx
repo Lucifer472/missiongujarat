@@ -25,6 +25,8 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
 
   const mainCategory = category.filter((f) => f.link.slice(1) === params1);
 
+  
+
   if (mainCategory.length > 0) {
     const data = await getBlogByCategory(mainCategory[0].link, page);
     if (data === null) return <NoBlog />;
@@ -111,6 +113,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
     blog.connect &&
     blog.pageText
   ) {
+
     return <AbPage data={blog} link={blog.connect} title={blog.pageText} />;
   }
 
