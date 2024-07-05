@@ -81,4 +81,17 @@ export const blogSchema = z.object({
   isIndex: z.enum(["one", "two", "three"]),
   connect: z.string().nullable(),
   pageText: z.string().nullable(),
+  btn1: z.string().nullable(),
+  btn2: z.string().nullable(),
+});
+
+const AdSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  sizeX: z.string(),
+  sizeY: z.string(),
+});
+
+export const AllAdSchema = z.object({
+  ads: z.array(AdSchema),
 });

@@ -64,6 +64,8 @@ const BlogEdit = ({
       isIndex: values.isIndex,
       isPending: values.isPending === true ? "true" : "false",
       pageText: values.pageText === null ? "" : values.pageText,
+      btn1: values.btn1 === null ? "" : values.btn1,
+      btn2: values.btn2 === null ? "" : values.btn2,
     },
   });
 
@@ -284,9 +286,39 @@ const BlogEdit = ({
               <FormLabel>Page Text</FormLabel>
               <FormControl>
                 {/* @ts-ignore */}
-                <Input placeholder="Main Title" {...field} />
+                <Input placeholder="Page Question" {...field} />
               </FormControl>
-              <FormDescription>This is the Main Title</FormDescription>
+              <FormDescription>This is the Page Question</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="btn1"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Button Text 1</FormLabel>
+              <FormControl>
+                {/* @ts-ignore */}
+                <Input placeholder="Button Text 1" {...field} />
+              </FormControl>
+              <FormDescription>This is the Button Text 1</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="btn2"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Button Text 2</FormLabel>
+              <FormControl>
+                {/* @ts-ignore */}
+                <Input placeholder="Button Text 2" {...field} />
+              </FormControl>
+              <FormDescription>This is the Button Text 2</FormDescription>
               <FormMessage />
             </FormItem>
           )}

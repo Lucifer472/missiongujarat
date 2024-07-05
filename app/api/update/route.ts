@@ -20,6 +20,8 @@ export async function POST(req: Request) {
     connect,
     isPending,
     pageText,
+    btn1,
+    btn2,
   } = await req.json();
 
   const block = data.blocks;
@@ -50,6 +52,8 @@ export async function POST(req: Request) {
         isPending: isPending === "true" ? true : false,
         connect,
         pageText: pageText === "" ? null : pageText,
+        btn1: btn1 === "" ? null : btn1,
+        btn2: btn2 === "" ? null : btn2,
       },
     });
 

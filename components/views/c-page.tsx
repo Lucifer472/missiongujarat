@@ -27,7 +27,6 @@ const CPage = ({ data }: { data: any }) => {
       <div className="border-y-2 border-gray-700">
         <Ad2 />
       </div>
-
       <ArticleViewDemoObject
         title={data?.title}
         blogData={data?.blog as object[]}

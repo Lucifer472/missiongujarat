@@ -15,14 +15,12 @@ interface useAdStateProp {
     label: string;
     id: string;
     size: googletag.GeneralSize;
-    divSize?: { x: number; y: number };
   }[];
   setAdCode: (
     code: {
       label: string;
       id: string;
       size: googletag.GeneralSize;
-      divSize?: { x: number; y: number };
     }[]
   ) => void;
 }

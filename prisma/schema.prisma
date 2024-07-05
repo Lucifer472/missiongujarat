@@ -71,5 +71,14 @@ model blog {
   pageText    String?
   connect     String?
 
+  btn1        String?
+  btn2        String?
+
   @@index([author])
+}
+
+model ads {
+  label       String
+  id          String    @id
+  size        Json
 }
