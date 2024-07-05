@@ -11,7 +11,7 @@ const AnchorAd = () => {
 
       googletag.cmd.push(() => {
         anchorSlot = googletag.defineOutOfPageSlot(
-          "${adData[9].id}",googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
+          "${adData[9].label}",googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
         );
 
         // Enable SRA and services.
