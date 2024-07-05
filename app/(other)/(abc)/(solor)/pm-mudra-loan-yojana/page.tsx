@@ -1,4 +1,4 @@
-import { Ad1, Ad3, SmallAd1 } from "@/components/ads/ads";
+import { Ad1, Ad3, SmallAd } from "@/components/ads/ads";
 
 import ExtraButton from "@/components/etc/button-extra";
 import ArticleViewDemoObject from "@/components/views/article-view-demo-object";
@@ -25,7 +25,7 @@ const aPage = async () => {
       >
         No ❌
       </ExtraButton>
-      <SmallAd1 />
+      <SmallAd />
       <ArticleViewDemoObject
         blogData={data?.blog as object[]}
         title={data?.title}

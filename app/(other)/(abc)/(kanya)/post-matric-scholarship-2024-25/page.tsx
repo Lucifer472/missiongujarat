@@ -1,4 +1,4 @@
-import { Ad1, Ad4, SmallAd, SmallAd1 } from "@/components/ads/ads";
+import {  Ad4,  SmallAd } from "@/components/ads/ads";
 import ExtraButton from "@/components/etc/button-extra";
 
 const link = "/medhasoft-apply-for-bihar-scholarship";
@@ -254,7 +254,7 @@ const bPage = () => {
       >
         No ❌
       </ExtraButton>
-      <SmallAd1 />
+      <SmallAd />
       <div dangerouslySetInnerHTML={{ __html: page }} className="demo"></div>
     </section>
   );

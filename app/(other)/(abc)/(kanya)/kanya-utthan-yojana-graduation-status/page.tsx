@@ -1,4 +1,4 @@
-import { Ad1, SmallAd2 } from "@/components/ads/ads";
+import { Ad1, SmallAd } from "@/components/ads/ads";
 import ExtraButton from "@/components/etc/button-extra";
 
 const link = "/post-matric-scholarship-2024-25";
@@ -75,7 +75,7 @@ const aPage = () => {
       >
         No ❌
       </ExtraButton>
-      <SmallAd2 />
+      <SmallAd />
       <div dangerouslySetInnerHTML={{ __html: page }} className="demo"></div>
     </section>
   );

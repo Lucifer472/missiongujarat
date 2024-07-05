@@ -1,4 +1,4 @@
-import { Ad1, Ad2, SmallAd2 } from "@/components/ads/ads";
+import { Ad1, Ad2, SmallAd } from "@/components/ads/ads";
 import ExtraButton from "@/components/etc/button-extra";
 
 const link = "/up-free-laptop-yojana";
@@ -25,7 +25,7 @@ const aPage = () => {
       >
         No ❌
       </ExtraButton>
-      <SmallAd2 />
+      <SmallAd />
       <div dangerouslySetInnerHTML={{ __html: page }} className="demo"></div>
     </section>
   );
