@@ -30,7 +30,6 @@ export const formSchema = z.object({
       message: "Dob Formate Incorrect Please use this Formate : 01/01/2000",
     })
     .regex(/^[0-9\/]*$/, "Only numbers and / characters are allowed."),
-  type: z.enum(["admin", "writer", "user"]),
   facebook: z.string(),
   instagram: z.string(),
   linkedin: z.string(),
@@ -86,7 +85,7 @@ export const blogSchema = z.object({
 });
 
 const AdSchema = z.object({
-  id: z.string(),
+  adId: z.string(),
   label: z.string(),
   sizeX: z.string(),
   sizeY: z.string(),

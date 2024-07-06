@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 const profilePage = async () => {
   const user = await getCurrentUser();
   if (user === null) redirect("/");
-  const { id, type, password, ...values } = user;
+  const { id, password, ...values } = user;
 
   return (
     <section className="bg-slate-100 w-full h-full">

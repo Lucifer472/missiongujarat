@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 const page = async () => {
   const user = await getCurrentUser();
-  if (user?.type !== "admin") return redirect("/admin");
+  if (!user) return redirect("/");
 
   const RegisterForm = dynamic(
     () => import("@/components/login/RegisterForm"),

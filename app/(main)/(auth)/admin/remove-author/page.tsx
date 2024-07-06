@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 const removeAuthor = async () => {
   const user = await getCurrentUser();
 
-  if (user?.type !== "admin") {
+  if (!user) {
     redirect("/");
   }
 

@@ -38,7 +38,6 @@ model user {
   bio       String
   gender    gender   @default(Male)
   dob       String   @default("2000-01-01")
-  type      type     @default(user)
   facebook  String
   instagram String
   linkedin  String
@@ -78,7 +77,9 @@ model blog {
 }
 
 model ads {
+  id          Int      @id @default(autoincrement())
+  name        String
   label       String
-  id          String    @id
+  adId        String    
   size        Json
 }

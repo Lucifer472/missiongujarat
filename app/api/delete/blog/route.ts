@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   const { id } = body;
 
   const user = await getCurrentUser();
-  if (user === null || user.type !== "admin") {
+  if (!user) {
     return NextResponse.json({
       Message: "You Are not Authorized!",
       status: 301,

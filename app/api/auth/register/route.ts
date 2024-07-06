@@ -13,7 +13,6 @@ export async function POST(request: Request) {
     img,
     gender,
     dob,
-    type,
     facebook,
     instagram,
     linkedin,
@@ -22,7 +21,7 @@ export async function POST(request: Request) {
 
   const user = await getCurrentUser();
 
-  if (user?.type !== "admin")
+  if (!user)
     return NextResponse.json({
       Message: "You are not authorized",
       status: 301,
@@ -39,7 +38,6 @@ export async function POST(request: Request) {
       img,
       gender,
       dob,
-      type,
       facebook,
       instagram,
       linkedin,

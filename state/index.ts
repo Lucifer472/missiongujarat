@@ -48,13 +48,13 @@ export const useAdState = create<useAdStateProp>((set) => ({
       size: [336, 280],
     },
     {
-      label: "/23060189646/N8",
-      id: "div-gpt-ad-1720163121014-0",
+      label: "/23060189646/MSG_5_336X280",
+      id: "div-gpt-ad-1716294101983-0",
       size: [336, 280],
     },
     {
       label: "/22725519965/106",
-      id: "div-gpt-ad-1716294101983-0",
+      id: "div-gpt-ad-1712814479863-0",
       size: [336, 280],
     },
     {
@@ -66,25 +66,21 @@ export const useAdState = create<useAdStateProp>((set) => ({
       label: "/23060189646/MSG_300x600",
       id: "div-gpt-ad-1716294295818-0",
       size: [300, 600],
-      divSize: { x: 300, y: 600 },
     },
     {
       label: "/23060189646/BNR2",
       id: "div-gpt-ad-1720163358420-0",
       size: [300, 75],
-      divSize: { x: 300, y: 75 },
     },
     {
       label: "/23060189646/A2",
       id: "div-gpt-ad-1720163175891-0",
       size: [320, 50],
-      divSize: { x: 300, y: 50 },
     },
     {
       label: "/23060189646/F2",
       id: "div-gpt-ad-1720163279509-0",
       size: [320, 480],
-      divSize: { x: 300, y: 480 },
     },
   ],
   setAdCode: (code) => set({ adCode: code }),

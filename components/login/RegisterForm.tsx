@@ -25,7 +25,6 @@ const RegisterForm = () => {
       img: "",
       gender: "Male",
       dob: "",
-      type: "user",
       facebook: "",
       instagram: "",
       linkedin: "",

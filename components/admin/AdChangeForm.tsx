@@ -3,82 +3,94 @@
 import * as z from "zod";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { AllAdSchema } from "@/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { AllAdSchema } from "@/schema";
+
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { updateAds } from "@/action/ads-update";
+import toast from "react-hot-toast";
 
 const AdEditor = ({
   setValue,
   data,
+  extra,
 }: {
   setValue: any;
   data: {
-    id: string;
+    adId: string;
     label: string;
-    size: number[];
+    sizeX: string;
+    sizeY: string;
   }[];
+  extra: any;
 }) => {
   const [adData, setAdData] = useState(data);
 
   const handleChange = (
-    id: string,
-    changedId: string,
-    label: string,
-    sizeX: string,
-    sizeY: string
+    adId: string,
+    mainKey: "adId" | "label" | "sizeX" | "sizeY",
+    value: string
   ) => {
     setAdData((prevData) => {
       const newData = [...prevData];
-      const find = newData.findIndex((item) => item.id === id);
-      if (find > 0) {
-        newData[find] = {
-          id: changedId,
-          label: label,
-          size: [parseInt(sizeX), parseInt(sizeY)],
-        };
+      const find = newData.findIndex((item) => item.adId === adId);
+      if (find > -1) {
+        newData[find][mainKey] = value;
       }
       return newData;
     });
   };
 
   useEffect(() => {
-    setValue("ads", JSON.stringify(adData));
+    setValue(adData);
   }, [setValue, adData]);
 
   return (
-    <div className="w-full flex flex-col items-start justify-start gap-y-4">
-      <div className="flex items-center justify-between w-full mb-4 px-2">
-        <h2 className="text-lg font-semibold">Add FAQ</h2>
-      </div>
-      {data.map((l) => (
+    <>
+      {data.map((l, index) => (
         <div
-          key={l.id}
-          className="flex flex-col items-start justify-start w-full gap-y-2"
+          className="w-full flex flex-col items-start justify-start gap-y-4"
+          key={extra[index].id}
         >
-          {/* <Input
+          <div>
+            {extra[index].name} {index + 1}
+          </div>
+          <Input
             type="text"
-            defaultValue={`${l.id}`}
-            placeholder="Question"
-            onChange={(e) => handleChange(l.id, "question")}
+            defaultValue={`${l.adId}`}
+            placeholder="id"
+            onChange={(e) => handleChange(l.adId, "adId", e.target.value)}
           />
-          <Textarea
-            placeholder="Answer"
+          <Input
+            type="text"
             defaultValue={`${l.label}`}
-            onChange={(e) => handleChange(l, "answer", e.target.value)}
-          /> */}
+            placeholder="label"
+            onChange={(e) => handleChange(l.adId, "label", e.target.value)}
+          />
+          <Input
+            type="text"
+            defaultValue={`${l.sizeX}`}
+            placeholder="size X"
+            onChange={(e) => handleChange(l.adId, "sizeX", e.target.value)}
+          />
+          <Input
+            type="text"
+            defaultValue={`${l.sizeY}`}
+            placeholder="size Y"
+            onChange={(e) => handleChange(l.adId, "sizeY", e.target.value)}
+          />
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
@@ -86,13 +98,13 @@ export const AdChangeForm = ({
   data,
 }: {
   data: {
-    id: string;
+    adId: string;
     label: string;
     size: number[];
   }[];
 }) => {
   const defaultValue = data.map((d) => ({
-    id: d.id,
+    adId: d.adId,
     label: d.label,
     sizeX: d.size[0].toString(),
     sizeY: d.size[1].toString(),
@@ -106,23 +118,38 @@ export const AdChangeForm = ({
   });
 
   const onSubmit = (v: z.infer<typeof AllAdSchema>) => {
-    console.log(v);
+    updateAds(v).then((d) => {
+      if (d.success) {
+        toast.success("Ads Updated!");
+      }
+      if (d.error) {
+        toast.error(d.error);
+      }
+    });
   };
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           name="ads"
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Ad Change Data</FormLabel>
-              <FormControl></FormControl>
+              <FormControl>
+                <AdEditor
+                  extra={data}
+                  data={defaultValue}
+                  setValue={field.onChange}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
+        <Button type="submit" className="w-full py-6">
+          Submit Data
+        </Button>
       </form>
     </Form>
   );
