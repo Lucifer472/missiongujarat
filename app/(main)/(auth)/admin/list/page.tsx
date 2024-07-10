@@ -4,7 +4,7 @@ import BlogList from "@/components/admin/BlogList";
 
 import { getEditBlogs } from "@/lib/blog-util";
 
-export const revalidate = 1;
+export const revalidate = 0;
 
 const listPage = async ({
   searchParams,
