@@ -5,7 +5,7 @@ import SwitchNav from "@/components/admin/SwitchNav";
 import ClientWrapper from "@/components/wrappers/client-wrapper";
 
 import { getAds } from "@/lib/ads";
-export const revalidate = 0;
+export const revalidate = 1;
 
 const AdChangePage = async () => {
   const ads = await getAds();
