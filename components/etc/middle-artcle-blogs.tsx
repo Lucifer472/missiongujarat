@@ -22,7 +22,7 @@ export const MiddleArticleBlogs = () => {
         <Link
           key={d.id}
           href={"/" + d.url}
-          className="flex flex-col items-center justify-center gap-y-1 p-1 border border-gray-200 rounded-md shadow-sm w-fit max-w-[184px] h-[230px]"
+          className="flex flex-col items-center justify-center gap-y-1 p-1 border border-gray-200 rounded-md shadow-sm w-fit max-w-[160px] xss:max-w-[181px] h-[230px]"
         >
           <figure
             style={{ margin: "0" }}
