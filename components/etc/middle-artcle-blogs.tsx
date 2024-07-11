@@ -22,11 +22,11 @@ export const MiddleArticleBlogs = () => {
         <Link
           key={d.id}
           href={"/" + d.url}
-          className="flex flex-col items-center justify-center gap-y-1 p-1 border border-gray-200 rounded-md shadow-sm w-fit max-w-[160px] xss:max-w-[181px] h-[230px]"
+          className="flex flex-col items-center justify-center gap-y-1 p-1 border border-gray-200 rounded-md shadow-sm w-fit max-w-[45%] xss:max-w-[181px] h-[230px]"
         >
           <figure
             style={{ margin: "0" }}
-            className="relative aspect-square w-[158px]"
+            className="relative aspect-square w-full max-w-[158px]"
           >
             <Image src={d.img} alt="" style={{ objectFit: "cover" }} fill />
           </figure>
