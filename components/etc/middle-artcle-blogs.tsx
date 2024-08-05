@@ -1,9 +1,11 @@
 "use client";
+import { useEffect, useState } from "react";
 import { getBlogsForClient } from "@/action/get-blogs";
+
 import textSlice from "@/lib/text-util";
+
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export const MiddleArticleBlogs = () => {
   const [data, setData] = useState<any>(null);

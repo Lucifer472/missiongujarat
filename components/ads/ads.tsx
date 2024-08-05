@@ -3,6 +3,7 @@
 import { AdsWrapper } from "@/components/wrappers/ad-wrapper";
 import ClientWrapper from "@/components/wrappers/client-wrapper";
 import { useAdState } from "@/state";
+import Script from "next/script";
 
 export const Ad1 = () => {
   const adData = useAdState((state) => state.adCode);
@@ -47,11 +48,19 @@ export const Ad4 = () => {
   const adData = useAdState((state) => state.adCode);
   return (
     <ClientWrapper>
-      <AdsWrapper
+      {/* <AdsWrapper
         id={adData[3].id}
         label={adData[3].label}
         size={adData[3].size}
-      />
+      /> */}
+      <>
+        <div id="container123"></div>
+        <Script
+          type="text/javascript"
+          strategy="lazyOnload"
+          src="https://blog.gujarattimesjob.com/timer.js"
+        ></Script>
+      </>
     </ClientWrapper>
   );
 };
