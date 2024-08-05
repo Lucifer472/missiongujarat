@@ -244,4 +244,132 @@
   .demo span {
     @apply font-bold break-words;
   }
+
+  /* extra class  */
+  .container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .tfikn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    opacity: 0;
+  }
+  .tfikn img {
+    max-width: 100%;
+    height: auto;
+  }
+  .content {
+    margin: 0;
+    text-align: center;
+  }
+  .content img {
+    margin-top: 20px;
+    display: none;
+    max-width: 100%;
+    height: auto;
+  }
+  #countdown {
+    font-size: 18px;
+    font-weight: bold;
+    color: #008000;
+  }
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: none;
+  }
+  @media only screen and (max-width: 768px) {
+    .mobile-only {
+      display: block;
+    }
+    .desktop-only {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 769px) {
+    .mobile-only {
+      display: none;
+    }
+    .desktop-only {
+      display: block;
+    }
+  }
+  .autohide {
+    display: none;
+  }
+  .disabled {
+    pointer-events: none;
+  }
+  .hidden {
+    display: none;
+  }
+  #facebookImage {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+  #headerTengah {
+    max-width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  #facebookImage,
+  #headerTengah {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  #button1,
+  #button2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #008000;
+    color: #fff;
+    transition: background-color 0.3s;
+    border: none;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    padding: 8px 30px !important;
+    text-align: center;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    -webkit-text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    -moz-text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    -ms-text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    transition: background-color 1s ease-out 0s;
+    -moz-transition: background-color 1s ease-out 0s;
+    -webkit-transition: background-color 1s ease-out 0s;
+    -o-transition: background-color 1s ease-out 0s;
+    letter-spacing: 1px;
+  }
+  #button1:disabled {
+    background-color: #95a5a6;
+  }
+  #button2 {
+    display: none;
+    background-color: #008000;
+  }
+  #button1:hover,
+  #button2:hover {
+    background-color: #008000;
+  }
 }

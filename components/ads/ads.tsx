@@ -3,7 +3,10 @@
 import { AdsWrapper } from "@/components/wrappers/ad-wrapper";
 import ClientWrapper from "@/components/wrappers/client-wrapper";
 import { useAdState } from "@/state";
-import Script from "next/script";
+
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { DummyAd } from "./dummy";
 
 export const Ad1 = () => {
   const adData = useAdState((state) => state.adCode);
@@ -45,7 +48,6 @@ export const Ad3 = () => {
 };
 
 export const Ad4 = () => {
-  const adData = useAdState((state) => state.adCode);
   return (
     <ClientWrapper>
       {/* <AdsWrapper
@@ -53,14 +55,7 @@ export const Ad4 = () => {
         label={adData[3].label}
         size={adData[3].size}
       /> */}
-      <>
-        <div id="container123"></div>
-        <Script
-          type="text/javascript"
-          strategy="lazyOnload"
-          src="https://blog.gujarattimesjob.com/timer.js"
-        ></Script>
-      </>
+      <DummyAd />
     </ClientWrapper>
   );
 };
