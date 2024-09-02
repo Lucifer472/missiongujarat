@@ -64,6 +64,12 @@ export default function RootLayout({
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         />
         <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7881445598590993"
+          async
+          strategy="beforeInteractive"
+        ></Script>
+
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TKHE64ET5C"
           async
           strategy="beforeInteractive"
