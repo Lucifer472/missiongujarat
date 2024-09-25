@@ -103,7 +103,6 @@ export default async function Home() {
         />
         {/* <Ad5 /> */}
         {/* <Faq /> */}
-        <Ad4 />
         <div className="flex flex-col w-full border-b-4 border-main py-4">
           <h2 className="text-xl lg:text-2xl">Our Author&apos;s</h2>
         </div>

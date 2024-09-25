@@ -202,7 +202,6 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLDBreadcrumb) }}
         ></script>
-        <Ad4 />
         <BlogMain blog={blog as any} link={blog.category} />
         {faq && faq[0].question !== "" && (
           <Accordion
