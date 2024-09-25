@@ -45,10 +45,6 @@ export const DummyAd = () => {
       });
       googletag.display(adData[3].id);
     });
-    history.pushState(null, "", document.URL);
-    window.addEventListener("popstate", () => {
-      window.location.href = window.location.href;
-    });
     return () => {
       if (googletag && sl !== null) {
         googletag.cmd.push(function () {
@@ -57,6 +53,24 @@ export const DummyAd = () => {
       }
     };
   }, [pathname, adData]);
+
+  useEffect(() => {
+    // Prevent the back button from navigating away
+    history.pushState(null, "", document.URL);
+
+    const handlePopState = () => {
+      // Force a reload of the current page
+      window.location.href = window.location.href;
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
+
   return (
     <>
       {isGoogleReferrer && isMobile && isAd ? (
