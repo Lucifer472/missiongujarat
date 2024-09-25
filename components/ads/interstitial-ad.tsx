@@ -28,7 +28,6 @@ const InterstitialAd = () => {
             },
           });
 
-          console.log("Interstitial is loading...");
           googletag.pubads().addEventListener("slotOnload", (event) => {
             if (interstitialSlot === event.slot) {
              console.log("Ads Loaded");

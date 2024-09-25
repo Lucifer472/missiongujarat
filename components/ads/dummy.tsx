@@ -1,6 +1,7 @@
 "use client";
 
 import { useAdState } from "@/state";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -12,9 +13,11 @@ export const DummyAd = () => {
   window.googletag = window.googletag || { cmd: [] };
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const [isGoogleReferrer, setIsGoogle] = useState(
-    document.referrer.includes("google.com")
-  );
+  const referrer = ["facebook.com", "instagram.com"];
+  const isGoogleReferrer = referrer.includes(document.referrer);
+  // const isGoogleReferrer = true;
+
+  const [isAd, setIsAd] = useState(true);
 
   useEffect(() => {
     let sl: googletag.Slot | null;
@@ -26,13 +29,11 @@ export const DummyAd = () => {
       }
       // googletag.pubads().enableSingleRequest();
       googletag.enableServices();
-
       googletag.pubads().addEventListener("slotOnload", (e) => {
-        if (sl === e.slot) {
-          console.log("Ads Loaded");
+        if (e.slot) {
+          setIsAd(true);
         } else {
-          console.log(e.slot);
-          console.log("Ad Was Not loaded :" + e.slot.getSlotElementId());
+          setIsAd(false);
         }
       });
       googletag.display(adData[3].id);
@@ -44,12 +45,12 @@ export const DummyAd = () => {
         });
       }
     };
-  }, [pathname, adData[3].id, adData[3].label, adData[3].size]);
+  }, [pathname, adData]);
   return (
     <>
-      {isGoogleReferrer && isMobile ? (
-        <div className="container">
-          <div className="tfikn">
+      {isGoogleReferrer && isMobile && isAd ? (
+        <div className="relative max-w-[600px]">
+          <div className="absolute top-0 left-0 w-full text-center z-[1] opacity-[0.01]">
             <div className="adsbygoogle">
               <div
                 id={adData[3].id}
@@ -60,18 +61,14 @@ export const DummyAd = () => {
               ></div>
             </div>
           </div>
-          <div className="content" id="content">
+          <div className="relative text-center">
             <center>
-              <img
-                id="gambar"
-                data-original-height="280"
-                data-original-width="336"
-                height="534"
-                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY8OmpdgumghIiEcmnqMmpQ13fmzDHUd4QzKYv1Lt5Drc7s655yXCar9RQfivXoHAnyBEJbdU0CuNJ5xv_O1Ki-0LF4ZCYrTE5BM-FWOcPVTtTQTYwx5TaoufDjqVBB7-BCCuKF_h5xRArdvSoJ22qdKq85az3LO6pNPT9hDXKz8UMOCKpi6ZTwEUz3AE/s336/gif-wathemes-8.gif"
-                width="640"
-                style={{
-                  display: "block",
-                }}
+              <Image
+                alt="blogger"
+                width={336}
+                height={280}
+                className="mt-[20px] w-full h-auto"
+                src="https://us.modzverse.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-23-at-5.17.53-PM.jpeg"
               />
             </center>
           </div>

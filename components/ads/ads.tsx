@@ -4,8 +4,6 @@ import { AdsWrapper } from "@/components/wrappers/ad-wrapper";
 import ClientWrapper from "@/components/wrappers/client-wrapper";
 import { useAdState } from "@/state";
 
-import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
 import { DummyAd } from "./dummy";
 
 export const Ad1 = () => {

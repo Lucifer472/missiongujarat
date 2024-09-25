@@ -28,7 +28,6 @@ export const LiveBlogSearch = ({
   }, [initialValue]);
 
   useEffect(() => {
-    console.log("It runs");
     getBlogsForSearch(value).then((d) => {
       setList(d);
     });

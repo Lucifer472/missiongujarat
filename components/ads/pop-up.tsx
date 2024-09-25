@@ -27,15 +27,9 @@ const PopupAd = () => {
           .addEventListener("slotRenderEnded", function (event) {
             if (event.slot) {
               if (event.isEmpty) {
-                console.log("Event is Empty : " + event.isEmpty);
-                console.log("Ad slot is empty. No ad was loaded.");
                 setOpen(false);
                 setLoading(false);
               } else {
-                console.log("Event is Empty : " + event.isEmpty);
-                console.log(
-                  "Ad slot has been rendered. Ad loaded successfully."
-                );
                 googletag.display("ad-popup");
                 setLoading(false);
               }

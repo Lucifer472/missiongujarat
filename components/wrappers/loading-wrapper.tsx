@@ -9,18 +9,18 @@ const LoadingWrapper = () => {
   const [loading, setLoading] = useState(true);
   const [percentage, setPercentage] = useState(0);
 
-  const setAds = useAdState((state) => state.setAdCode);
-  useEffect(() => {
-    getAllAdsFromServer().then((a) => {
-      const data = a.map((a) => ({
-        id: a.adId,
-        label: a.label,
-        size: a.size as googletag.GeneralSize,
-      }));
+  // const setAds = useAdState((state) => state.setAdCode);
+  // useEffect(() => {
+  //   getAllAdsFromServer().then((a) => {
+  //     const data = a.map((a) => ({
+  //       id: a.adId,
+  //       label: a.label,
+  //       size: a.size as googletag.GeneralSize,
+  //     }));
 
-      setAds(data);
-    });
-  }, [setAds]);
+  //     setAds(data);
+  //   });
+  // }, [setAds]);
 
   useEffect(() => {
     setPercentage(0);

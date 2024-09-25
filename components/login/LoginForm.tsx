@@ -48,7 +48,6 @@ const LoginForm = () => {
       password: values["password"],
       redirect: false,
     }).then((callback) => {
-      console.log(callback);
       if (callback?.ok) {
         router.refresh();
         router.push("/admin");

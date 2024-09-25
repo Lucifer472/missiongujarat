@@ -28,14 +28,6 @@ export const AdsWrapper = ({
       // googletag.pubads().enableSingleRequest();
       googletag.enableServices();
 
-      googletag.pubads().addEventListener("slotOnload", (e) => {
-        if (sl === e.slot) {
-          console.log("Ads Loaded");
-        } else {
-          console.log(e.slot);
-          console.log("Ad Was Not loaded :" + e.slot.getSlotElementId());
-        }
-      });
       googletag.display(id);
     });
     return () => {

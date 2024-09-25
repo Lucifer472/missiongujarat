@@ -70,7 +70,6 @@ const BlogEdit = ({
   });
 
   function onSubmit(values: z.infer<typeof blogSchema>) {
-    console.log(data);
     fetch("/api/update", {
       method: "POST",
       body: JSON.stringify({ ...values, data, id }),

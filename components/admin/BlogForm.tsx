@@ -54,7 +54,6 @@ const BlogForm = () => {
   const indexValues = ["one", "two", "three"];
 
   function onSubmit(values: z.infer<typeof blogSchema>) {
-    console.log(values);
     fetch("/api/addBlog", {
       method: "POST",
       body: JSON.stringify({ ...values, data }),
@@ -74,7 +73,6 @@ const BlogForm = () => {
           toast.success("Blog Successfully Created!");
           form.reset();
         } else {
-          console.log(data);
           toast.error(data.Message);
         }
       })
