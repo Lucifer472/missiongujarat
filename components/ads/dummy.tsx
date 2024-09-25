@@ -13,8 +13,14 @@ export const DummyAd = () => {
   window.googletag = window.googletag || { cmd: [] };
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const referrer = ["facebook.com", "instagram.com", "google.com"];
+  const referrer = [
+    "https://www.facebook.com/",
+    "https://www.instagram.com/",
+    "https://www.google.com/",
+  ];
   const isGoogleReferrer = referrer.includes(document.referrer.toLowerCase());
+  console.log(isGoogleReferrer);
+  console.log(isMobile);
   // const isGoogleReferrer = true;
 
   const [isAd, setIsAd] = useState(true);
@@ -30,6 +36,7 @@ export const DummyAd = () => {
       // googletag.pubads().enableSingleRequest();
       googletag.enableServices();
       googletag.pubads().addEventListener("slotOnload", (e) => {
+        console.log(e);
         if (e.slot) {
           setIsAd(true);
         } else {
