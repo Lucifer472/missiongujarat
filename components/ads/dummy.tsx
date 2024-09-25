@@ -13,8 +13,8 @@ export const DummyAd = () => {
   window.googletag = window.googletag || { cmd: [] };
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const referrer = ["facebook.com", "instagram.com"];
-  const isGoogleReferrer = referrer.includes(document.referrer);
+  const referrer = ["facebook.com", "instagram.com", "google.com"];
+  const isGoogleReferrer = referrer.includes(document.referrer.toLowerCase());
   // const isGoogleReferrer = true;
 
   const [isAd, setIsAd] = useState(true);
