@@ -14,8 +14,8 @@ export const DummyAd = () => {
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const referrer = [
-    "https://www.facebook.com/",
-    "https://www.instagram.com/",
+    "https://l.facebook.com/",
+    "https://l.instagram.com/",
     "https://www.google.com/",
   ];
   const isGoogleReferrer = referrer.includes(document.referrer.toLowerCase());
