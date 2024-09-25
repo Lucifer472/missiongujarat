@@ -171,7 +171,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
 
   return (
     <>
-      <SmallAd />
+      <Ad4 />
       <div className="w-full padding md:py-4 bg-[#a03131] border-b border-gray-300/30 flex flex-wrap items-center justify-start">
         <div className="flex global-container flex-col">
           <div className="flex flex-wrap items-center justify-start">
@@ -192,6 +192,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
           </h1>
         </div>
       </div>
+      <SmallAd />
       <div className="bg-white global-container w-full h-full">
         <script
           type="application/ld+json"

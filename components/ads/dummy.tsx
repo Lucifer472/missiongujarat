@@ -25,6 +25,11 @@ export const DummyAd = () => {
 
   const [isAd, setIsAd] = useState(true);
 
+  history.pushState(null, "", document.URL);
+  window.addEventListener("popstate", () => {
+    window.location.href = window.location.href;
+  });
+
   useEffect(() => {
     let sl: googletag.Slot | null;
 
