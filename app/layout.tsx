@@ -81,6 +81,10 @@ export default function RootLayout({
 
             gtag('config', 'G-TKHE64ET5C');`}
         </Script>
+        <Script
+          src="https://truepubmedia.com/scripts/script-tag-876.js"
+          strategy="afterInteractive"
+        ></Script>
         <Toaster position="top-center" />
         <LoadingWrapper />
         {children}
