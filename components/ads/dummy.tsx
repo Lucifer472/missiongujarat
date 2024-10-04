@@ -93,7 +93,7 @@ export const DummyAd = () => {
                 width={336}
                 height={280}
                 className="mt-[20px] w-full h-auto"
-                src="https://us.modzverse.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-23-at-5.17.53-PM.jpeg"
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNNbSh6ysYoOTFK5ROPGb8d1qArB_mVRLxzv-Bl1xREKDtFUVjkMSWR1QJxH_fdcrqjJx5vpnJGFl3v7fsIcJ2OddddQdjlv0JMcaEUYwWfnI00YQvFGe_6xmGjYc9RLVnovgZ66P2ELe4y3h8GCn-BJr_qjvTAZN7uvj4LgPTTCwvbJMv2MqflWweuwty/w614-h640/Screenshot%202024-08-21%20at%209.18.40%E2%80%AFPM.png"
               />
             </center>
           </div>
