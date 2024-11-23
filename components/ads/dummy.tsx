@@ -13,15 +13,20 @@ export const DummyAd = () => {
   window.googletag = window.googletag || { cmd: [] };
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const referrer = [
-    "https://l.facebook.com/",
-    "https://l.instagram.com/",
-    "https://www.google.com/",
+  const allowedReferer = [
+    "facebook.com",
+    "instagram.com",
+    "yahoo.com",
+    "google.com",
   ];
-  const isGoogleReferrer = referrer.includes(document.referrer.toLowerCase());
-  console.log(isGoogleReferrer);
-  console.log(isMobile);
-  // const isGoogleReferrer = true;
+  function isFromAllowedReferer() {
+    const referer = document.referrer.toLowerCase();
+    return allowedReferer.some((allowedReferer) =>
+      referer.includes(allowedReferer)
+    );
+  }
+
+  const isGoogleReferrer = isFromAllowedReferer();
 
   const [isAd, setIsAd] = useState(true);
 
