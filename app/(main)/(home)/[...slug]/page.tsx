@@ -11,13 +11,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { Ad1, Ad2, Ad3, Ad4, SmallAd } from "@/components/ads/ads";
+import { Ad1, Ad2, Ad3, Ad4, Ad5 } from "@/components/ads/ads";
 
 import NoBlog from "@/components/etc/NoBlog";
 import BlogList from "@/components/blogs/BlogList";
 import Pagination from "@/components/etc/Pagination";
-import AbPage from "@/components/views/ab-page";
-import CPage from "@/components/views/c-page";
 
 const slugPage = async ({ params }: { params: { slug: string[] } }) => {
   const params1 = params.slug[0];
@@ -105,19 +103,6 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
     );
   }
 
-  if (
-    blog.isPending &&
-    blog.isIndex !== "three" &&
-    blog.connect &&
-    blog.pageText
-  ) {
-    return <AbPage data={blog} link={blog.connect} title={blog.pageText} />;
-  }
-
-  if (blog.isPending && blog.isIndex === "three") {
-    return <CPage data={blog} />;
-  }
-
   const faq = JSON.parse(blog.faq as string);
 
   const BlogMain = dynamic(() => import("@/components/blogs/BlogMain"), {
@@ -192,7 +177,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
           </h1>
         </div>
       </div>
-      <SmallAd />
+      <Ad5 />
       <div className="bg-white global-container w-full h-full">
         <script
           type="application/ld+json"

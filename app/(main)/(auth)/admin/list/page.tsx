@@ -47,7 +47,6 @@ const listPage = async ({
         url: true,
         id: true,
         title: true,
-        isPending: true,
       },
     });
     return res;

@@ -36,9 +36,7 @@ export default async function Home() {
 
   const latestBlogs = await getBlogs({
     take: 4,
-    where: {
-      isPending: false,
-    },
+
     orderBy: {
       createdAt: "desc",
     },
@@ -51,7 +49,6 @@ export default async function Home() {
     take: 4,
     where: {
       category: "/government-yojana",
-      isPending: false,
     },
     orderBy: {
       createdAt: "desc",
@@ -65,7 +62,6 @@ export default async function Home() {
     take: 10,
     where: {
       category: "/application",
-      isPending: false,
     },
     orderBy: {
       createdAt: "desc",

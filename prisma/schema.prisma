@@ -64,15 +64,6 @@ model blog {
 
   faq     Json?     
 
-  isPending    Boolean     @default(false)
-  isIndex      isIndex     @default(one)
-
-  pageText    String?
-  connect     String?
-
-  btn1        String?
-  btn2        String?
-
   @@index([author])
 }
 

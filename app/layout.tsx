@@ -59,11 +59,6 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${poppins.className} overflow-x-hidden`}>
         <Script
-          async
-          strategy="beforeInteractive"
-          src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
-        />
-        <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7881445598590993"
           async
           strategy="beforeInteractive"
@@ -74,6 +69,10 @@ export default function RootLayout({
           async
           strategy="beforeInteractive"
         ></Script>
+        <Script
+          id="google-ad"
+          strategy="afterInteractive"
+        >{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
         <Script id="tags" strategy="beforeInteractive">
           {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -81,20 +80,10 @@ export default function RootLayout({
 
             gtag('config', 'G-TKHE64ET5C');`}
         </Script>
-        <Script
-          src="https://truepubmedia.com/scripts/script-tag-876.js"
-          strategy="afterInteractive"
-        ></Script>
         <Toaster position="top-center" />
         <LoadingWrapper />
         {children}
         <Footer />
-        <ClientWrapper>
-          <>
-            <InterstitialAd />
-            <AnchorAd />
-          </>
-        </ClientWrapper>
       </body>
     </html>
   );

@@ -28,7 +28,6 @@ export const getBlogByCategory = async (category: string, page: number) => {
     },
     where: {
       category: category,
-      isPending: false,
     },
     include: {
       Author: {
@@ -45,7 +44,6 @@ export const getBlogByCategory = async (category: string, page: number) => {
     take: 1,
     where: {
       category: category,
-      isPending: false,
     },
   });
 
@@ -54,7 +52,6 @@ export const getBlogByCategory = async (category: string, page: number) => {
     take: 1,
     where: {
       category: category,
-      isPending: false,
     },
   });
 
@@ -74,7 +71,6 @@ export const getBlogBySearch = async (search: string, page: number) => {
       updatedAt: "desc",
     },
     where: {
-      isPending: false,
       title: {
         contains: search,
       },
@@ -93,7 +89,6 @@ export const getBlogBySearch = async (search: string, page: number) => {
     skip: page * pageSize,
     take: 1,
     where: {
-      isPending: false,
       title: {
         contains: search,
       },
@@ -104,7 +99,6 @@ export const getBlogBySearch = async (search: string, page: number) => {
     skip: (page + 1) * pageSize,
     take: 1,
     where: {
-      isPending: false,
       title: {
         contains: search,
       },

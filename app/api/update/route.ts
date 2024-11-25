@@ -7,22 +7,8 @@ export async function POST(req: Request) {
   if (user === null) {
     return NextResponse.json({ Message: "Please Login Again!", status: 401 });
   }
-  const {
-    title,
-    url,
-    keywords,
-    description,
-    data,
-    category,
-    faq,
-    id,
-    isIndex,
-    connect,
-    isPending,
-    pageText,
-    btn1,
-    btn2,
-  } = await req.json();
+  const { title, url, keywords, description, data, category, faq, id } =
+    await req.json();
 
   const block = data.blocks;
   let img = "https://images.drivingexamexpert.com/blogs/6683d1444482e.png";
@@ -48,12 +34,6 @@ export async function POST(req: Request) {
         blog: block,
         category,
         faq,
-        isIndex,
-        isPending: isPending === "true" ? true : false,
-        connect,
-        pageText: pageText === "" ? null : pageText,
-        btn1: btn1 === "" ? null : btn1,
-        btn2: btn2 === "" ? null : btn2,
       },
     });
 

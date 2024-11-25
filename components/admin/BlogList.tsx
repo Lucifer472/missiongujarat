@@ -14,7 +14,6 @@ const BlogList = ({
     url: string;
     title: string;
     id: number;
-    isPending: boolean;
   }[];
 }) => {
   const router = useRouter();
@@ -70,8 +69,7 @@ const BlogList = ({
           </div>
           <div
             className={cn(
-              "col-span-7 border-r border-gray-100 text-center py-2 px-4 flex items-center justify-center",
-              data.isPending && "bg-gray-200"
+              "col-span-7 border-r border-gray-100 text-center py-2 px-4 flex items-center justify-center"
             )}
           >
             {data.title}

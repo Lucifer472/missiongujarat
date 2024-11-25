@@ -1,9 +1,7 @@
 "use client";
-import { useAdState } from "@/state";
 import { useEffect } from "react";
 
 const AnchorAd = () => {
-  const adData = useAdState((state) => state.adCode);
   useEffect(() => {
     const script = document.createElement("script");
     script.text = `window.googletag = window.googletag || { cmd: [] };
@@ -11,7 +9,7 @@ const AnchorAd = () => {
 
       googletag.cmd.push(() => {
         anchorSlot = googletag.defineOutOfPageSlot(
-          "${adData[9].label}",googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
+          "adData[9].label",googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
         );
 
         // Enable SRA and services.
@@ -23,7 +21,7 @@ const AnchorAd = () => {
     script.setAttribute("type", "module");
 
     document.head.appendChild(script);
-  }, [adData]);
+  }, []);
 
   return <></>;
 };

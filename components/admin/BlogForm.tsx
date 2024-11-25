@@ -43,15 +43,8 @@ const BlogForm = () => {
       keywords: "",
       description: "",
       category: category[0].link,
-      isIndex: "one",
-      connect: null,
-      isPending: "true",
-      pageText: "",
-      btn1: "",
-      btn2: "",
     },
   });
-  const indexValues = ["one", "two", "three"];
 
   function onSubmit(values: z.infer<typeof blogSchema>) {
     fetch("/api/addBlog", {
@@ -176,129 +169,6 @@ const BlogForm = () => {
               <FormDescription>
                 Please Select Category of the Scholarship
               </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="isPending"
-          render={({ field }) => (
-            <FormItem className="space-y-3">
-              <FormLabel>
-                Pending or Not (Pending Blog Not Available without URL)
-              </FormLabel>
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  defaultValue={field.value.toString()}
-                  className="flex flex-col space-y-1"
-                >
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="true" />
-                    </FormControl>
-                    <FormLabel className="font-normal">is Pending</FormLabel>
-                  </FormItem>
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="false" />
-                    </FormControl>
-                    <FormLabel className="font-normal">
-                      is Not Pending
-                    </FormLabel>
-                  </FormItem>
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="isIndex"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Index Page</FormLabel>
-              <FormControl>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Category" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {indexValues.map((l) => (
-                      <SelectItem key={l} value={l} className="capitalize">
-                        {l}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormControl>
-              <FormDescription>
-                Please Select Index for Page (default: One)
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="connect"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Connect to Blog</FormLabel>
-              <FormControl>
-                <LiveBlogSearch initialValue={null} setField={field.onChange} />
-              </FormControl>
-              <FormDescription>Connect to Next Page</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="pageText"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Page Text</FormLabel>
-              <FormControl>
-                {/* @ts-ignore */}
-                <Input placeholder="Page Question" {...field} />
-              </FormControl>
-              <FormDescription>This is the Page Question</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="btn1"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Button Text 1</FormLabel>
-              <FormControl>
-                {/* @ts-ignore */}
-                <Input placeholder="Button Text 1" {...field} />
-              </FormControl>
-              <FormDescription>This is the Button Text 1</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="btn2"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Button Text 2</FormLabel>
-              <FormControl>
-                {/* @ts-ignore */}
-                <Input placeholder="Button Text 2" {...field} />
-              </FormControl>
-              <FormDescription>This is the Button Text 2</FormDescription>
               <FormMessage />
             </FormItem>
           )}

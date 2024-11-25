@@ -1,10 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
+
 import { convertDateFormat } from "@/lib/date-util";
 import { Separator } from "@/components/ui/separator";
 import { blog } from "@prisma/client";
-import Image from "next/image";
-import { Ad1, Ad2, Ad3, Ad5, LargeAd } from "../ads/ads";
+
+import { Ad1, Ad2, Ad3 } from "../ads/ads";
 import { MiddleArticleBlogs } from "../etc/middle-artcle-blogs";
 
 interface blogUser extends blog {
@@ -16,15 +18,13 @@ interface blogUser extends blog {
 }
 
 const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
-  const blogHeadings = blog.blog.filter((b: any) => b.type === "header");
-
   const BlogGen = dynamic(() => import("@/components/blogs/BlogGen"), {
     ssr: false,
   });
 
   const adElement1 = {
     type: "Ad",
-    data: LargeAd,
+    data: Ad1,
   };
 
   const adElement2 = {
@@ -42,16 +42,10 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
     data: MiddleArticleBlogs,
   };
 
-  const adElement5 = {
-    type: "Ad",
-    data: Ad5,
-  };
-
   blog.blog.splice(2, 0, adElement1);
   blog.blog.splice(5, 0, adElement2);
   blog.blog.splice(7, 0, adElement3);
   blog.blog.splice(10, 0, adElement4);
-  // blog.blog.splice(12, 0, adElement5);
 
   return (
     <article className="flex flex-col w-full">

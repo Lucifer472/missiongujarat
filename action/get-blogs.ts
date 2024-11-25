@@ -10,9 +10,7 @@ export const getBlogsForClient = async () => {
   return await getBlogs({
     take: 4,
     skip: skip,
-    where: {
-      isPending: false,
-    },
+
     orderBy: {
       updatedAt: "desc",
     },
