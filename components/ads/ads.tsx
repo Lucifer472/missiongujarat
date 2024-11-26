@@ -1,6 +1,4 @@
 "use client";
-
-import ClientWrapper from "@/components/wrappers/client-wrapper";
 import { AdsWrapper } from "@/components/wrappers/ad-wrapper";
 
 export const Ad1 = () => {

@@ -1,6 +1,7 @@
 import Script from "next/script";
 import { Roboto_Slab } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import { GoogleAdSense } from "next-google-adsense";
 
 import type { Metadata } from "next";
 
@@ -9,9 +10,7 @@ import { CardImage, description, keywords, title, url } from "@/constant";
 
 import "@/app/globals.css";
 import Footer from "@/components/footer/Footer";
-import InterstitialAd from "@/components/ads/interstitial-ad";
-import AnchorAd from "@/components/ads/anchor-ad";
-import ClientWrapper from "@/components/wrappers/client-wrapper";
+
 // Fonts
 const poppins = Roboto_Slab({
   subsets: ["latin"],
@@ -58,21 +57,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${poppins.className} overflow-x-hidden`}>
-        <Script
+        {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7881445598590993"
           async
           strategy="beforeInteractive"
-        ></Script>
+        ></Script> */}
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TKHE64ET5C"
           async
           strategy="beforeInteractive"
         ></Script>
-        <Script
-          id="google-ad"
-          strategy="afterInteractive"
-        >{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
+
         <Script id="tags" strategy="beforeInteractive">
           {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -80,6 +76,7 @@ export default function RootLayout({
 
             gtag('config', 'G-TKHE64ET5C');`}
         </Script>
+        <GoogleAdSense publisherId="pub-7881445598590993" />
         <Toaster position="top-center" />
         <LoadingWrapper />
         {children}
