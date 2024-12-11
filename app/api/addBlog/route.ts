@@ -19,9 +19,11 @@ export async function POST(req: Request) {
     }
   }
 
+  const updatedURL = url.replace(/[^a-zA-Z ]/g, "").replace(/\s+/g, "-");
+
   const isUrlNew = await db.blog.findUnique({
     where: {
-      url: url.replace(/\s+/g, "-"),
+      url: updatedURL,
     },
   });
 
@@ -36,7 +38,7 @@ export async function POST(req: Request) {
     await db.blog.create({
       data: {
         title,
-        url: url.toLowerCase().replace(/\s+/g, "-"),
+        url: updatedURL,
         author: user.username,
         img,
         faq,

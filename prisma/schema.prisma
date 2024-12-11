@@ -66,11 +66,3 @@ model blog {
 
   @@index([author])
 }
-
-model ads {
-  id          Int      @id @default(autoincrement())
-  name        String
-  label       String
-  adId        String    
-  size        Json
-}

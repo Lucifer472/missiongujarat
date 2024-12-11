@@ -1,4 +1,4 @@
-import { Ad1, Ad2, Ad3, Ad4, Ad5 } from "@/components/ads/ads";
+import { Ad1, Ad2, Ad3 } from "@/components/ads/ads";
 import BlogListing from "@/components/blogs/BlogListing";
 import MainBlogShowcase from "@/components/blogs/MainBlogShowcase";
 import Authors from "@/components/etc/AuthorList";
@@ -83,7 +83,7 @@ export default async function Home() {
           mainTitle={"Latest Blogs"}
           subTitle="Featured Section"
           blogData={latestBlogs}
-        />{" "}
+        />
         <Ad2 />
         <MainBlogShowcase
           title={"Main Blog Showcase"}
@@ -97,8 +97,6 @@ export default async function Home() {
           blogData={gov}
           reversed
         />
-        {/* <Ad5 /> */}
-        {/* <Faq /> */}
         <div className="flex flex-col w-full border-b-4 border-main py-4">
           <h2 className="text-xl lg:text-2xl">Our Author&apos;s</h2>
         </div>
