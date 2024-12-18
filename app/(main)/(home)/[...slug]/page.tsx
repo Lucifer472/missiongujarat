@@ -11,7 +11,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { Ad1, Ad2, Ad3, Ad4, Ad5 } from "@/components/ads/ads";
+import {
+  Ad1,
+  Ad2,
+  Ad3,
+  Ad4,
+  Ad5,
+  OutBrain2,
+  OutBrain3,
+} from "@/components/ads/ads";
 
 import NoBlog from "@/components/etc/NoBlog";
 import BlogList from "@/components/blogs/BlogList";
@@ -188,6 +196,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLDBreadcrumb) }}
         ></script>
         <BlogMain blog={blog as any} link={blog.category} />
+        <OutBrain2 />
         {faq && faq[0].question !== "" && (
           <Accordion
             type="single"
@@ -214,6 +223,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
             ))}
           </Accordion>
         )}
+        <OutBrain3 />
         <RecentBlog
           options={{
             take: 3,

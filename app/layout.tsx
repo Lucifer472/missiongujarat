@@ -59,12 +59,20 @@ export default function RootLayout({
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7881445598590993"
           async
-          strategy="beforeInteractive"
+          type="text/javascript"
+          strategy="afterInteractive"
+        ></Script>
+        <Script
+          src="//widgets.outbrain.com/outbrain.js"
+          async
+          type="text/javascript"
+          strategy="afterInteractive"
         ></Script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TKHE64ET5C"
           async
-          strategy="beforeInteractive"
+          type="text/javascript"
+          strategy="afterInteractive"
         ></Script>
         <Script id="tags" strategy="beforeInteractive">
           {`window.dataLayer = window.dataLayer || [];
