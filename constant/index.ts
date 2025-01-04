@@ -27,6 +27,14 @@ export const category = [
     label: "Exams",
     link: "/exams",
   },
+  {
+    label: "Railway Job",
+    link: "/railway-job",
+  },
+  {
+    label: "Anganwadi Job",
+    link: "/anganwadi-job",
+  },
 ];
 
 export const footerLink = [
