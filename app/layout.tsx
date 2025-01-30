@@ -45,6 +45,9 @@ export const metadata: Metadata = {
   },
   publisher: "Truepub Media",
   icons: "/favicon.ico",
+  other: {
+    "facebook-domain-verification": "b7uz42wt2rpkc2ldtq07bl2ok2lzq8",
+  },
 };
 
 // Main HTML
